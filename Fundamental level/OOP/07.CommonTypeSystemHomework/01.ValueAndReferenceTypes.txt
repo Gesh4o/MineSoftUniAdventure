@@ -1,0 +1,34 @@
+01.Which .NET data types are value types? Which types are reference types?
+-Value types are: all numeric types(byte, ..., int, ..., long, ..., decimal),
+boolean, char, Date, enums and even structures(by definition).
+-Reference types are: arrays, classes, delegates(since on low level they are classes)
+and even the string(string is immutable).
+02.How do value and reference types differ when assigned to a variable?
+I think the difference is that value types give the value directly(from stack) rather
+then just giving the address where this data is stored(in heap)
+03.How do value and reference types behave when passed as argument to a method?
+When we pass a value type to method it is created an implicit copy of the value unlike 
+the reference - still copy is made but for the address, not for the value itself.
+04.Where in memory are value types allocated? Where are reference types allocated?
+-Value types- stack;
+-Reference types- heap.
+05.What is data mutation? Can value types be mutated? Can reference types be mutated?
+Probably this explained with the fact that a value type can be represented as a 
+reference type and vice versa. You can use a tecnique called "boxing".
+06.What is the difference between mutating and setting (assigning) a variable? Give examples.
+The main difference between them that when setting a variable it not necessary to change it's
+data type.
+int num = 5;
+int[] arr = new int[1] {num} // this is how the value 5 can be represented referentially
+// Not a good example probably but this comes to my mind.
+int notFive = num // setting a variable.
+07.What are the out and ref keywords used for? In what do they differ?
+It means that no matter what type you work with you will work with the source value,
+which means that you will be able to change it and this changes to be applayed for
+all the pointers towards this value. The main difference between out and ref is that
+out obligates you to make a change and do not return the same result, which is not a 
+nessecity for ref.
+
+
+// This is how I think the stuff works if you disagree with me, please write your 
+// arguments in the homework's comment. I will be happy to hear a second opinion.
