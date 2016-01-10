@@ -1,20 +1,21 @@
-﻿namespace InheritanceAndPolymorphism
+﻿namespace InheritanceAndPolymorphism.Entities.Courses
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using Contracts;
 
-    public class OffsiteCourse : Course
+    public class OffsiteCourse : Course, IOffsiteCourse
     {
         private string town;
 
         public OffsiteCourse(string courseName, string teacherName, string town) 
-            : this(courseName, teacherName, new List<string>(), town)
+            : this(courseName, teacherName, new List<IStudent>(), town)
         {
         }
 
-        public OffsiteCourse(string courseName, string teacherName, IList<string> students, string town) 
-            : base(courseName, teacherName, students)
+        public OffsiteCourse(string courseName, string teacherName, IList<IStudent> studentsInCourse, string town) 
+            : base(courseName, teacherName, studentsInCourse)
         {
             this.Town = town;
         }
@@ -25,7 +26,7 @@
             {
                 return this.town;
             }
-            set
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {

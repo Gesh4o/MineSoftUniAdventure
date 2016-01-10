@@ -41,10 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Course.cs" />
-    <Compile Include="OffsiteCourse.cs" />
-    <Compile Include="LocalCourse.cs" />
+    <Compile Include="Contracts\ICourse.cs" />
+    <Compile Include="Contracts\IOffsiteCourse.cs" />
+    <Compile Include="Contracts\IStudent.cs" />
+    <Compile Include="Contracts\ILocalCourse.cs" />
+    <Compile Include="Entities\Courses\Course.cs" />
+    <Compile Include="Entities\Courses\OffsiteCourse.cs" />
+    <Compile Include="Entities\Courses\LocalCourse.cs" />
     <Compile Include="CoursesExamples.cs" />
+    <Compile Include="Entities\Student.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

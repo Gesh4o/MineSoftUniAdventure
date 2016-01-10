@@ -1,26 +1,28 @@
-﻿namespace InheritanceAndPolymorphism
+﻿namespace InheritanceAndPolymorphism.Entities.Courses
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
+    using Contracts;
 
-    public abstract class Course
+    public abstract class Course : ICourse
     {
         private string courseName;
         private string teacherName;
-        private IList<string> students; 
+        private IList<IStudent> students; 
 
         protected Course(string courseName, string teacherName)
         {
             this.CourseName = courseName;
             this.TeacherName = teacherName;
-            this.students = new List<string>();
+            this.Students = new List<IStudent>();
         }
 
-        protected Course(string courseName, string teachearName, IList<string> students)
+        protected Course(string courseName, string teachearName, IList<IStudent> students)
             : this(courseName, teachearName)
         {
-            this.students = students;
+            this.Students = students;
         }
 
         public string CourseName
@@ -29,7 +31,7 @@
             {
                 return this.courseName;
             }
-            set
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -46,7 +48,7 @@
             {
                 return this.teacherName;
             }
-            set
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -57,7 +59,7 @@
             }
         }
 
-        public IEnumerable<string> Students
+        public IEnumerable<IStudent> Students
         {
             get
             {
@@ -69,42 +71,54 @@
                 {
                     throw new ArgumentException(string.Format($"{nameof(this.Students)} cannot be null."));
                 }
+
+                this.students = (value as IList<IStudent>);
             }
         }
 
-        public void AddStudent(params string[] students)
+        public void AddStudents(params IStudent[] studentsToAdd)
         {
-            if (students == null || students.Length == 0)
+            if (studentsToAdd == null || studentsToAdd.Length == 0)
             {
                 throw new ArgumentException("Student cannot be null or empty!");
             }
 
-            foreach (string student in students)
+            foreach (IStudent student in studentsToAdd)
             {
-                if (student.Length < 6 || !student.Contains(" "))
+                if (student == null)
                 {
-                    throw new ArgumentException("Student name is either too short or not full.");
+                    throw new ArgumentNullException("Cannot add null student!");
                 }
 
                 this.students.Add(student);
             }
         }
 
-        public void RemoveStudent(string student)
+        public void RemoveStudent(IStudent studentToRemove)
         {
-            if (string.IsNullOrEmpty(student))
+            if (studentToRemove == null)
             {
-                throw new ArgumentException("Student to remove cannot be null or empty!");
+                throw new ArgumentNullException("Cannot remove student null!");
             }
 
-            if (this.students.Contains(student))
+            bool isStudentExistingInCourse = false;
+            foreach (IStudent student in this.students)
             {
-                this.students.Remove(student);
-                Console.WriteLine($"Student {student} removed successfully!");
+                if (student.FirstName != studentToRemove.FirstName || student.LastName != studentToRemove.LastName)
+                {
+                    continue;
+                }
+                isStudentExistingInCourse = true;
+                break;
+            }
+
+            if (isStudentExistingInCourse)
+            {
+                Console.WriteLine($"Student {studentToRemove.FirstName} {studentToRemove.LastName} removed successfully!");
             }
             else
             {
-                Console.WriteLine("Student is not listed in current course!");
+                Console.WriteLine($"Student {studentToRemove.FirstName} {studentToRemove.LastName} is not listed in current course!");
             }
         } 
 
@@ -113,11 +127,10 @@
             StringBuilder result = new StringBuilder();
             result.Append("Course { Name = ");
             result.Append(this.CourseName);
-            if (this.TeacherName != null)
-            {
-                result.Append("; Teacher = ");
-                result.Append(this.TeacherName);
-            }
+
+            result.Append("; Teacher = ");
+            result.Append(this.TeacherName);
+
             result.Append("; Students = ");
             result.Append(this.GetStudentsAsString());
 
@@ -126,13 +139,19 @@
 
         private string GetStudentsAsString()
         {
-            if (this.Students == null)
+            StringBuilder result = new StringBuilder();
+            if (this.Students == null || !this.Students.Any()) 
             {
-                return "{ }";
+                result.Append("{ }");
+                return result.ToString();
             }
             else
             {
-                return "{ " + string.Join(", ", this.Students) + " }";
+                result.Append("{ ");
+                result.Append(string.Join(", ", this.Students));
+                result.Append(" }");
+
+                return result.ToString();
             }
         }
     }
