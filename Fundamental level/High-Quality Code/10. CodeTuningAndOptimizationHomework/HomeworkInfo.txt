@@ -1,0 +1,12 @@
+Homework contains two parts:
+1."10.ProjectSolution" you can find VS 2015 solution which
+contains projects - "SolarSystem" here is slightly refactored
+project from the given homework. "Slightly" because has optimized
+performance not from HQC point of view. Other projects contain source 
+code for testing operations(like "+") and alogortihms. Feel free 
+to see them in order to see if the test I have made are relevant.
+02."CleanTheSmellyCode" which contains more info about the first
+task from the homework.
+-"ComparingSortingAlgorthms" and "ComparingDataStructures" 
+show table of summarized data. Also in every test project you 
+can look at "..\bin\Debug\" directory for additional info.
