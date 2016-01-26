@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Theatre.Core.Commands
+﻿namespace Theatre.Core.Commands
 {
+    using System.Linq;
+    using System.Text;
     using Theatre.Contracts;
 
     public class PrintPerformancesCommand : AbstractCommand
@@ -23,11 +19,11 @@ namespace Theatre.Core.Commands
             if (performanceCount > 0)
             {
                 var performances = this.PerformanceDatabase.ListPerformances(theatre);
-                int counter = 1;
+                int counter = 0;
                 // Performance bottleneck found.
                 foreach (var performance in performances)
                 {
-                    if (performanceCount == 1 || counter == performanceCount)
+                    if (performanceCount == 1 || counter == performanceCount - 1)
                     {
                         string formatedDate = performance.Date.ToString("dd.MM.yyyy HH:mm");
                         result.AppendFormat("({0}, {1})", performance.PerformanceTitle, formatedDate);
@@ -37,6 +33,7 @@ namespace Theatre.Core.Commands
                         string formatedDate = performance.Date.ToString("dd.MM.yyyy HH:mm");
                         result.AppendFormat("({0}, {1}), ", performance.PerformanceTitle, formatedDate);
                     }
+
                     counter++;
                 }
             }

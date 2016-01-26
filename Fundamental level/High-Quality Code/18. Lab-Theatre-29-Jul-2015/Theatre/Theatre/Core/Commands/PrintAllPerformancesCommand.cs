@@ -20,7 +20,6 @@ namespace Theatre.Core.Commands
             var performances  = this.PerformanceDatabase.ListAllPerformances().ToList();
             StringBuilder resultBuilder = new StringBuilder();
 
-            // Possible performance bottleneck.
             if (performances.Any())
             {
                 string performanceDate = string.Empty;
@@ -30,7 +29,7 @@ namespace Theatre.Core.Commands
                     if (performances.Count == 1 || i == performances.Count - 1)
                     {
                         performanceDate = performances[i].Date.ToString("dd.MM.yyyy HH:mm");
-                        resultBuilder.AppendFormat("({0}, {1}, {2}) ", performances[i].PerformanceTitle, performances[i].TheatreName, performanceDate);
+                        resultBuilder.AppendFormat("({0}, {1}, {2})", performances[i].PerformanceTitle, performances[i].TheatreName, performanceDate);
                     }
                     else
                     {
