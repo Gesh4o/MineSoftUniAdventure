@@ -1,0 +1,32 @@
+CreateBus Sofia|Varna|Etap Address|15.01.2015 06:15|25
+CreateBus Sofia|Varna|Vitosha Travel|27.01.2015 21:20|12
+CreateBus Sofia|Varna|Black Sea Travel|27.01.2015 21:20|11.5
+CreateBus Sofia|Athens|Arda Tour|17.01.2015 02:00|146.55
+CreateBus Sofia|Varna|Black Sea Travel|27.01.2015 21:20|11
+CreateTrain Sofia|Rousse|15.01.2015 09:20|24.25|12.15
+CreateTrain Varna|Sofia|27.01.2015 05:22|26.54|12.22
+CreateTrain Sofia|Varna|17.01.2015 11:25|6.5|2.4
+CreateTrain Sofia|Athens|15.01.2015 17:00|124.5|104
+CreateTrain Sofia|Varna|27.01.2015 21:20|7.22|2.61
+CreateTrain Sofia|Varna|25.01.2015 19:00|7.22|2.61
+CreateTrain Sofia|Varna|17.01.2015 11:25|6|2
+CreateFlight FX215|Sofia|Varna|Bulgaria Air|17.01.2015 12:20|200
+CreateFlight SA522|Sofia|London|Lufthansa|15.01.2015 07:15|740
+CreateFlight TX251FB|London|Paris|Swiss Air|27.01.2015 05:00|150
+CreateFlight LU529|London|New York|Easyjet|17.01.2015 11:00|1200
+CreateFlight TX251FB|London|Viena|Swiss Air|29.01.2015 09:00|150
+DeleteFlight AA12245
+DeleteBus Sofia|Athens|Arda Tour|17.01.2015 02:20|
+DeleteTrain Sofia|Varna|25.01.2015 19:20
+FindTickets Sofia|Varna
+
+
+
+
+FindTickets Sofia|Plovdiv
+FindByDates 15.01.2015 06:00|15.01.2015 09:20
+
+DeleteFlight SA522
+FindByDates 15.01.2015 06:00|15.01.2015 09:20
+
+FindByDates 17.01.2015 12:30|17.01.2015 19:00

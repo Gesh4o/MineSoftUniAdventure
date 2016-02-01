@@ -1,0 +1,26 @@
+Bus created
+Bus created
+Bus created
+Bus created
+Duplicated bus
+Train created
+Train created
+Train created
+Train created
+Train created
+Train created
+Duplicated train
+Flight created
+Flight created
+Flight created
+Flight created
+Duplicated flight
+Flight does not exist
+Bus does not exist
+Train does not exist
+[15.01.2015 06:15|bus|25.00] [17.01.2015 11:25|train|6.50] [17.01.2015 12:20|flight|200.00] [25.01.2015 19:00|train|7.22] [27.01.2015 21:20|bus|11.50] [27.01.2015 21:20|bus|12.00] [27.01.2015 21:20|train|7.22]
+No matches
+[15.01.2015 06:15|bus|25.00] [15.01.2015 07:15|flight|740.00] [15.01.2015 09:20|train|24.25]
+Flight deleted
+[15.01.2015 06:15|bus|25.00] [15.01.2015 09:20|train|24.25]
+No matches
