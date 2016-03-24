@@ -3,8 +3,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class _04_CopyJpgFile {
-    private static final String sourcePath = "src\\My-meme.jpg";
-    private static final String destinationPath = "my-copied-picture.jpg";
+    private static final String sourcePath = "src\\my-picture.jpg";
+    private static final String destinationPath = "src\\my-copied-picture.jpg";
     public static void main(String[] args) {
         try(FileInputStream fileInputStream = new FileInputStream(sourcePath)){
             byte[] buffer = new byte[4096];

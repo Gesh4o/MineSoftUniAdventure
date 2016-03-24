@@ -4,13 +4,15 @@ import _08_CSVDatabase.Core.Commands.*;
 import _08_CSVDatabase.Interfaces.CommandFactory;
 import _08_CSVDatabase.Interfaces.Command;
 
+import java.security.InvalidParameterException;
+
 public class BasicCommandFactory implements CommandFactory {
     public BasicCommandFactory() {
     }
 
     @Override
-    public Command createCommand(String commandName){
-        Command command = null;
+    public Command createCommand(String commandName) throws InvalidParameterException{
+        Command command;
         switch (commandName){
             case "Search-by-full-name":
                 command = new SearchByFullNameCommand();
@@ -32,8 +34,9 @@ public class BasicCommandFactory implements CommandFactory {
                 break;
             case "End":
                 command = new EndCommand();
-            default:
                 break;
+            default:
+                throw new InvalidParameterException("Command not supported");
         }
 
         return command;

@@ -1,5 +1,7 @@
 package _08_CSVDatabase.Interfaces;
 
-public interface CommandFactory {
-    Command createCommand(String commandName);
+import java.security.InvalidParameterException;
+
+public interface CommandFactory{
+    Command createCommand(String commandName) throws InvalidParameterException;
 }

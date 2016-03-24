@@ -16,13 +16,13 @@ public class StudentDatabase implements Database {
     private static final String StudentsPath = "src\\_08_CSVDatabase\\Core\\Data\\students.txt";
     private static final String GradesPath = "src\\_08_CSVDatabase\\Core\\Data\\grades.txt";
 
-    private TreeMap<String, Learner> studentsByName;
-    private HashMap<Integer, Learner> studentsById;
+    private HashMap<String, Learner> studentsByName;
+    private TreeMap<Integer, Learner> studentsById;
     private Integer id;
 
     public StudentDatabase() {
-        this.studentsByName = new TreeMap<>();
-        this.studentsById = new HashMap<>();
+        this.studentsByName = new HashMap<>();
+        this.studentsById = new TreeMap<>();
         this.id = 1;
         this.initializeStudents();
         this.initializeGrades();
@@ -57,7 +57,7 @@ public class StudentDatabase implements Database {
     }
 
     @Override
-    public String deleteById(int id) {
+    public String deleteById(int id) throws IOException {
         String result = null;
         Boolean isValid = checkIsValidId(id);
         if (!isValid) {
@@ -79,7 +79,7 @@ public class StudentDatabase implements Database {
     }
 
     @Override
-    public String updateById(int id) {
+    public String updateById(int id) throws IOException {
         String result = null;
         Boolean isValid = checkIsValidId(id);
         if (!isValid) {
@@ -92,10 +92,10 @@ public class StudentDatabase implements Database {
     }
 
     @Override
-    public String insertStudent(Learner student) {
+    public String insertStudent(Learner student) throws IOException {
         this.insertStudentAt(student, this.id);
 
-        saveStudentInfo(student);
+        saveStudentInfo(student, this.id);
 
         this.id++;
 
@@ -103,14 +103,14 @@ public class StudentDatabase implements Database {
     }
 
     @Override
-    public String insertGradeById(int id, Course grade) {
+    public String insertGradeById(int id, Course course) {
         String result = null;
         Boolean isValid = checkIsValidId(id);
         if (!isValid) {
             result = "Student does not exist!";
         }
 
-        if (grade == null) {
+        if (course == null) {
             throw new NullPointerException("Grade cannot be null!");
         }
 
@@ -118,7 +118,7 @@ public class StudentDatabase implements Database {
         if (student == null) {
             result = "Student does not exist!";
         } else {
-            student.addCourse(grade);
+            student.addCourse(course);
 
             this.studentsById.put(id, student);
         }
@@ -126,62 +126,101 @@ public class StudentDatabase implements Database {
         return result;
     }
 
-    private void saveStudentInfo(Learner student) {
+    private void saveStudentInfo(Learner student, Integer id) throws IOException {
         String studentInfo = String.format(
                 "%d,%s,%s,%d,%s",
-                this.id,
+                id,
                 student.getFirstName(),
                 student.getLastName(),
                 student.getAge(),
                 student.getTownName());
-        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(StudentsPath, true))){
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(StudentsPath, true))) {
             bufferedWriter.write(studentInfo + "\n");
 
-        }catch (IOException ioe){
-            //
+        } catch (IOException ioe) {
+            throw ioe;
         }
     }
 
-    private void updateStudentGrades(int id) {
+    private void updateStudentGrades(int id) throws IOException {
         StringBuilder info = new StringBuilder();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(GradesPath))) {
             String line = bufferedReader.readLine();
+            Integer currentId = Integer.parseInt(line.substring(0,1));
+            Boolean isLoggedAlready = false;
             while (line != null) {
-                if (line.startsWith(Integer.toString(id))) {
-                    StringBuilder updatedCourseInfo = new StringBuilder();
-                    updatedCourseInfo.append(id).append(",");
-
-                    Learner student = this.findById(id);
-                    Iterable<Course> courses = student.getCourses();
-                    for (Course course : courses) {
-                        updatedCourseInfo.append(course.getCourseName()).append(" ");
-
-                        StringBuilder grades = new StringBuilder();
-                        for (Double grade : course.getGrades()) {
-                            grades.append(grade).append(" ");
-                        }
+                if (currentId >= id && !isLoggedAlready) {
+                    isLoggedAlready = true;
+                    appendStudentAndCourseInformation(id, info);
+                    if (currentId > id){
+                        info.append(line).append("\n");
                     }
-
-                    info.append(updatedCourseInfo.toString()).append("\n");
-                } else {
+                }else {
                     info.append(line).append("\n");
                 }
 
                 line = bufferedReader.readLine();
             }
+
+            if (!isLoggedAlready){
+                appendStudentAndCourseInformation(id, info);
+            }
+
         } catch (IOException ioe) {
-            //
+            throw ioe;
         }
 
-        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(GradesPath))){
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(GradesPath))) {
             bufferedWriter.write(info.toString());
-        }
-        catch (IOException ioe){
-            //
+        } catch (IOException ioe) {
+            throw ioe;
         }
     }
 
-    private void deleteStudentInfo(int id, String path) {
+    private void appendStudentAndCourseInformation(int id, StringBuilder info) {
+        StringBuilder updatedCourseInfo = new StringBuilder();
+        updatedCourseInfo.append(id).append(",");
+
+        Learner student = this.findById(id);
+        Iterable<Course> courses = student.getCourses();
+        ArrayList<Course> coursesList = new ArrayList<>();
+        for (Course course : courses) {
+            coursesList.add(course);
+        }
+
+        appendCourseGrades(updatedCourseInfo, coursesList);
+
+        info.append(updatedCourseInfo.toString()).append("\n");
+    }
+
+    private void appendCourseGrades(StringBuilder updatedCourseInfo, ArrayList<Course> coursesList) {
+        for (int i = 0; i < coursesList.size(); i++) {
+            if (coursesList.size() == 1 || i == coursesList.size() - 1){
+                Course course = coursesList.get(i);
+                updatedCourseInfo.append(course.getCourseName()).append(" ");
+
+                StringBuilder grades = new StringBuilder();
+                for (Double grade : course.getGrades()) {
+                    grades.append(grade).append(" ");
+                }
+
+                updatedCourseInfo.append(grades.toString());
+            }
+            else{
+                Course course = coursesList.get(i);
+                updatedCourseInfo.append(course.getCourseName()).append(" ");
+
+                StringBuilder grades = new StringBuilder();
+                for (Double grade : course.getGrades()) {
+                    grades.append(grade).append(" ");
+                }
+
+                updatedCourseInfo.append(grades.toString()).append(",");
+            }
+        }
+    }
+
+    private void deleteStudentInfo(int id, String path) throws IOException {
         StringBuilder info = new StringBuilder();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             String data = bufferedReader.readLine();
@@ -194,13 +233,13 @@ public class StudentDatabase implements Database {
             }
 
         } catch (IOException ioe) {
-            //
+            throw ioe;
         }
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path))) {
             bufferedWriter.write(info.toString());
         } catch (IOException ioe) {
-            //
+            throw ioe;
         }
     }
 

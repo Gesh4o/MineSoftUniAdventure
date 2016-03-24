@@ -2,6 +2,10 @@ package _08_CSVDatabase.Core;
 
 import _08_CSVDatabase.Interfaces.*;
 import _08_CSVDatabase.Interfaces.Runnable;
+import com.sun.javaws.exceptions.InvalidArgumentException;
+
+import java.io.IOException;
+import java.security.InvalidParameterException;
 
 public class Engine implements Runnable {
     private InputHandler inputHandler;
@@ -34,19 +38,24 @@ public class Engine implements Runnable {
 
     @Override
     public void run() {
-        while(true){
-            String commandInput = this.inputHandler.readLine();
 
-            String[] commandArgs = commandInput.split("\\s+");
-            String commandName = commandArgs[0];
+        while (true) {
+            try {
+                String commandInput = this.inputHandler.readLine();
 
-            Command command = this.commandFactory.createCommand(commandName);
-            command.Execute(commandArgs, this);
+                String[] commandArgs = commandInput.split("\\s+");
+                String commandName = commandArgs[0];
+
+                Command command = this.commandFactory.createCommand(commandName);
+                command.Execute(commandArgs, this);
+
+            } catch (IOException | InvalidParameterException ioe) {
+                System.out.println(ioe);
+                // Re-throwing the exceptions is not the brightest idea but my logic here is that they can be
+                // parsed locally(some info could be added or log that info somewhere) and then give to central
+                // exception system which is here.
+            }
         }
 
-        // Read the input.
-        // Create command.
-        // Execute command.
-        // Update data.
     }
 }

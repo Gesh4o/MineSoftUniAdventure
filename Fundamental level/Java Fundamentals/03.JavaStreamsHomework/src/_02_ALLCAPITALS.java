@@ -1,22 +1,25 @@
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class _02_ALLCAPITALS {
     public static void main(String[] args) {
         String path = "src\\lines.txt";
 
+        StringBuilder text = new StringBuilder();
         try (BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(
-                        new FileInputStream(path)))){
+                new FileReader(path))){
 
             String input = bufferedReader.readLine();
 
             while(input != null){
-                System.out.println(input.toUpperCase());
+                text.append(input.toUpperCase()).append("\r\n");
                 input = bufferedReader.readLine();
             }
+        }
+        catch (IOException ioe){
+            System.out.println(ioe);
+        }
+        try(PrintWriter printWriter = new PrintWriter(new FileWriter(path))){
+            printWriter.print(text.toString());
         }
         catch (IOException ioe){
             System.out.println(ioe);
