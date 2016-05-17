@@ -1,0 +1,5 @@
+Green::(0.00/0.00/0.00)
+-Boklek -> damage: 0, health: 0, armor: 0
+-Boklik -> damage: 0, health: 0, armor: 0
+Yellow::(0.00/0.00/0.00)
+-Bokluk -> damage: 0, health: 0, armor: 0

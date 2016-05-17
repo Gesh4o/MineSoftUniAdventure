@@ -1,0 +1,7 @@
+[10H, JH, QH, KH, AH]
+[9H, 10H, JH, QH, KH]
+[3C, 4C, 5C, 6C, 7C]
+[2C, 3C, 4C, 5C, 6C]
+[5S, 6S, 7S, 8S, 9S]
+[6S, 7S, 8S, 9S, 10S]
+[7S, 8S, 9S, 10S, JS]

@@ -1,0 +1,5 @@
+0 -> [Ivan Ivanov]; avg=2.00
+120 -> [Diana Kirova, George Stefanov]; avg=3.18
+300 -> [Aleksandar Stoyanov, Kalin Petrov]; avg=5.20
+306 -> [George Ivanov]; avg=5.26
+400 -> [Krasimir Mihaylov, Petya Koleva, Stoyan Kotsev]; avg=5.66

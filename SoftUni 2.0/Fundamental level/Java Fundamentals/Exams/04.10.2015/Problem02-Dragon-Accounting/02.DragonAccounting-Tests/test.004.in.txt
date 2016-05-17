@@ -1,0 +1,45 @@
+77317
+118;0;1382.25
+25;30;530.15
+0;37;1250.91
+91;14;289.54
+33;26;354.86
+0;16;85.23
+10;38;1483.61
+8;29;198.95
+57;13;1457.98;Machines:11760.43;Previous years deficit:13011.97;Product development:2960.52
+142;34;723.02
+47;7;1336.00
+101;27;971.14
+56;20;1477.88
+58;14;1455.74
+62;47;1081.55
+95;10;35.76;Taxes:4327.96;Machines:13707.55
+85;24;98.19;Unconditional funding:6098.59;Unconditional funding:8069.71;Unconditional funding:504.35;Unconditional funding:5965.80
+75;23;391.17
+64;37;127.29;Machines:1215.73
+132;1;95.32
+53;49;150.88
+62;10;1392.55
+95;23;546.68
+46;3;393.91;Machines:5820.21;Machines:14203.54;Machines:14399.93
+9;18;763.10
+142;7;184.76
+135;40;193.78
+28;15;1095.44;Unconditional funding:2513.82;Machines:14328.35;Previous years deficit:7667.40
+65;42;423.55
+132;42;1086.40
+59;41;1030.65;Unconditional funding:11643.88;Product development:3646.53
+22;31;268.50
+125;41;356.59
+50;35;749.15
+8;44;634.65
+89;24;1228.29
+87;42;49.72
+55;49;705.29
+53;25;217.11
+74;46;845.05;Machines:12983.55;Taxes:8758.77
+70;23;1110.98;Previous years deficit:13343.74;Product development:14430.12;Product development:8908.54;Previous years deficit:11544.29
+95;16;770.50;Product development:1861.95;Machines:4054.46;Taxes:2675.16;Taxes:9217.13
+10;41;326.13
+END

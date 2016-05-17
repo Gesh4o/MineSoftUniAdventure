@@ -1,0 +1,4 @@
+12345.1234567
+10;0;40;Machines:120.4
+7;6;44;Product development:8.8;Taxes:12
+END

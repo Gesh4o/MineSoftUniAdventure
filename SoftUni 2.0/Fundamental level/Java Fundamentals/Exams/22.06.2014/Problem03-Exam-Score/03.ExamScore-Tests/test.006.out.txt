@@ -1,0 +1,14 @@
+15 -> [Ivan Petrov]; avg=2.00
+30 -> [Kalin Petkov]; avg=2.00
+50 -> [George Slavchev]; avg=2.00
+110 -> [George Ivanov]; avg=2.39
+120 -> [George Stefanov]; avg=2.39
+130 -> [Petya Koleva]; avg=2.39
+140 -> [Aleksandar Stoyanov]; avg=2.39
+150 -> [Diana Kirova]; avg=2.39
+160 -> [Ivan Ivanov]; avg=3.39
+170 -> [Kalin Petrov]; avg=3.39
+180 -> [George Petrov]; avg=3.50
+190 -> [Petya Petrova]; avg=3.50
+250 -> [Aleksandar Petkov]; avg=4.50
+350 -> [Diana Petrova]; avg=5.50

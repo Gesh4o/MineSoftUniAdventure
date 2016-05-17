@@ -1,0 +1,16 @@
+15
+Black Motichkata 150 12115 124
+Purple Motichkata 105 124 1412
+Black Asencho 121 12412 155
+Black Mitaka 17 782 989
+Green Parvan 115 1000 100
+Purple Stoqn 151 12412 113
+Purple Asencho 128 889 909
+Green Bochko 124 56 1947
+Purple Bochko 1948 909 1231
+Black Motichkata 150 12115 124
+Purple Motichka 105 1242 1412
+Black Assencho 2121 12412 155
+Black Shmitaka 17 782 989
+Green Parvanka 1115 10020 100
+Purple Stoqnka 151 12412 113

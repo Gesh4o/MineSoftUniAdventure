@@ -1,0 +1,17 @@
+Black::(485.20/7700.60/482.40)
+-Asencho -> damage: 121, health: 12412, armor: 155
+-Assencho -> damage: 2121, health: 12412, armor: 155
+-Mitaka -> damage: 17, health: 782, armor: 989
+-Motichkata -> damage: 150, health: 12115, armor: 124
+-Shmitaka -> damage: 17, health: 782, armor: 989
+Purple::(431.33/4664.67/865.00)
+-Asencho -> damage: 128, health: 889, armor: 909
+-Bochko -> damage: 1948, health: 909, armor: 1231
+-Motichka -> damage: 105, health: 1242, armor: 1412
+-Motichkata -> damage: 105, health: 124, armor: 1412
+-Stoqn -> damage: 151, health: 12412, armor: 113
+-Stoqnka -> damage: 151, health: 12412, armor: 113
+Green::(451.33/3692.00/715.67)
+-Bochko -> damage: 124, health: 56, armor: 1947
+-Parvan -> damage: 115, health: 1000, armor: 100
+-Parvanka -> damage: 1115, health: 10020, armor: 100

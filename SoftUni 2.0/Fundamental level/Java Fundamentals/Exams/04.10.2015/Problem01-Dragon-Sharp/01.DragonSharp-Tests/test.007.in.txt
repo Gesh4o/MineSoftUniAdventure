@@ -1,0 +1,18 @@
+17
+if (5>8) out "nishto";
+if (5<8) loop 0 out "pa nishto";
+if (12==11) loop 9 out "oshte nishto";
+if (5>12) loop 9 out "bla bla nishto";
+if (5<8) loop 0 out "prazen loop";
+if (5>8) out "nishto";
+if (5<8) loop 0 out "pa nishto";
+if (12==11) loop 9 out "oshte nishto";
+if (5>12) loop 9 out "bla bla nishto";
+if (5<8) loop 0 out "prazen loop";
+if (5>8) out "nishto";
+if (5<8) loop 0 out "pa nishto";
+if (12==11) loop 9 out "oshte nishto";
+if (5>12) loop 9 out "bla bla nishto";
+if (5<8) loop 0 out "prazen loop";
+else out "nishto nishto";
+if (0==0) loop 1 out "if (0<1) loop 2 out \"samo tva\"";

@@ -1,0 +1,10 @@
+Purple::(51.50/932.00/441.00)
+-Asen -> damage: 11, health: 2222, armor: 333
+-Rosko -> damage: 55, health: 141, armor: 42
+-Stamat -> damage: 128, health: 1242, armor: 155
+-Toshko -> damage: 12, health: 123, armor: 1234
+Green::(82.50/200.00/280.00)
+-Azsymbastun -> damage: 45, health: 250, armor: 10
+-Bastuncho -> damage: 120, health: 150, armor: 550
+Yellow::(45.00/250.00/0.00)
+-Stoil -> damage: 45, health: 250, armor: 0

@@ -1,0 +1,11 @@
+10
+if (271==211) loop 5 out "text text";
+if (11>8) loop 9 out "kon za kokoshka";
+else loop 3 out "abe mani";
+if (211<8) out "are chiche";
+else loop 3 out "abe mani";
+if (271==211) loop 3 out "text text";
+if (11>8) loop 1 out "chicho stefcho golqmata rabota e toi";
+else loop 3 out "abe mani";
+if (211<8) out "are chiche";
+else loop 3 out "aide aide";

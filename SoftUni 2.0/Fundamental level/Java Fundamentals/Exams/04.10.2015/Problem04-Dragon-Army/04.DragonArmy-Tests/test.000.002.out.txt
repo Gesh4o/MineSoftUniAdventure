@@ -1,0 +1,5 @@
+Gold::(223.75/826.25/17.50)
+-Ardrax -> damage: 100, health: 1055, armor: 50
+-Traxx -> damage: 500, health: 250, armor: 0
+-Xaarxx -> damage: 250, health: 1000, armor: 10
+-Zzazx -> damage: 45, health: 1000, armor: 10

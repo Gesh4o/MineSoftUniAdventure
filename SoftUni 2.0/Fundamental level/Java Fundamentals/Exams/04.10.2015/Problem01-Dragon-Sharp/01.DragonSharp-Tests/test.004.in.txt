@@ -1,0 +1,3 @@
+2
+if (11>9) loop 10 out "kvot takoa paolo koelho";
+if (12>9) loop 10 out "loop out 8 \"chichovata slama\"";

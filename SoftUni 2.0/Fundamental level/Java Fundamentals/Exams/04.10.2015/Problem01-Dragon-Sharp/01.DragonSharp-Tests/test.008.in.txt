@@ -1,0 +1,2 @@
+1
+if (5>0) loop 10 out "mnogo output she ima tuka mnogo output she ima tuka mnogo output she ima tuka";

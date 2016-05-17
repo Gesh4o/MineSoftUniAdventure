@@ -1,0 +1,10 @@
+Green::(150.00/215.00/123.00)
+-Stamat -> damage: 150, health: 215, armor: 123
+Yellow::(51.00/124.00/124.00)
+-Stamat -> damage: 51, health: 124, armor: 124
+Blue::(13.00/151.00/15.00)
+-PernishkiGeroi -> damage: 13, health: 151, armor: 15
+Gold::(148.00/1787.00/11.00)
+-Dancho -> damage: 148, health: 1787, armor: 11
+Purple::(89.00/12.00/1515.00)
+-Azis -> damage: 89, health: 12, armor: 1515

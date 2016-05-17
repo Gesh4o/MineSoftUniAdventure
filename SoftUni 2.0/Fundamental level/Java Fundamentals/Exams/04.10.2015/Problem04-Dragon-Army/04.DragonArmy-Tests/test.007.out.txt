@@ -1,0 +1,7 @@
+Green::(232.50/232.67/81.00)
+-Abc -> damage: 124, health: 14, armor: 1
+-Def -> damage: 189, health: 199, armor: 19
+-Ghi -> damage: 78, health: 899, armor: 91
+-Jkl -> damage: 91, health: 24, armor: 234
+-Mno -> damage: 15, health: 151, armor: 8
+-Pqr -> damage: 898, health: 109, armor: 133

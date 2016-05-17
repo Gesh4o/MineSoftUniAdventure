@@ -1,0 +1,3 @@
+2
+if (8==8) loop 2 out "lolol";
+else out mega greshka;

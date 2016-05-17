@@ -1,0 +1,5 @@
+4
+Gold Zzazx null 1000 10
+Gold Traxx 500 null 0
+Gold Xaarxx 250 1000 null
+Gold Ardrax 100 1055 50

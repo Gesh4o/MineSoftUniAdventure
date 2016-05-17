@@ -1,0 +1,4 @@
+Black::(100.00/150.00/100.00)
+-Gosho -> damage: 100, health: 150, armor: 100
+Red::(200.00/260.00/280.00)
+-Pesho -> damage: 200, health: 260, armor: 280

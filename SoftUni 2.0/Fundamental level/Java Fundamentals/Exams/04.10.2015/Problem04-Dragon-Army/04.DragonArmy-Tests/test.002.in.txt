@@ -1,0 +1,6 @@
+5
+Green Stamat 150 215 123
+Yellow Stamat 51 124 124
+Blue PernishkiGeroi 13 151 15
+Gold Dancho 148 1787 11
+Purple Azis 89 12 1515

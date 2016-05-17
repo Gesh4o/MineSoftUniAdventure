@@ -1,0 +1,8 @@
+Black::(63.33/200.00/40.00)
+-Azis -> damage: 45, health: 250, armor: 10
+-Motko -> damage: 100, health: 250, armor: 100
+-Xxx -> damage: 45, health: 100, armor: 10
+Yellow::(15.00/155.00/10.00)
+-Pichagata -> damage: 15, health: 155, armor: 10
+Green::(100.00/1000.00/10.00)
+-Bochko -> damage: 100, health: 1000, armor: 10

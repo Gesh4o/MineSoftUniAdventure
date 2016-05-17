@@ -1,0 +1,1 @@
+2C, 3C, 2D, 4C, 5C, 3D, 6D, 4D, 7C, 8C, 5D, 9C, 10D, JC, QC, KC 

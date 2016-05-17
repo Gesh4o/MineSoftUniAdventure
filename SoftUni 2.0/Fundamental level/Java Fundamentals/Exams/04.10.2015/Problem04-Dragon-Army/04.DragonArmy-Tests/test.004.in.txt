@@ -1,0 +1,7 @@
+6
+Green Goshko 120 123 0
+Yellow Goshko 120 125 null
+Blue Pesho 989 1050 null
+Blue Pesho 1000 10000 100
+Green Goshko null null null
+Yellow Goshko 10000 1000 100

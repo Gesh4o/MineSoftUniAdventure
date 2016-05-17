@@ -1,0 +1,3 @@
+120 -> [Diana Kirova, George Stefanov]; avg=3.18
+306 -> [Peter Ivanov]; avg=5.26
+400 -> [Darin Mihaylov, Maria Petrova, Petya Georgieva]; avg=5.67

@@ -1,0 +1,6 @@
+Green::(45.00/250.00/10.00)
+-Goshko -> damage: 45, health: 250, armor: 10
+Yellow::(10000.00/1000.00/100.00)
+-Goshko -> damage: 10000, health: 1000, armor: 100
+Blue::(1000.00/10000.00/100.00)
+-Pesho -> damage: 1000, health: 10000, armor: 100

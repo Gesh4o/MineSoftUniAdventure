@@ -1,0 +1,4 @@
+3
+if (5==5) loop 2 out "zdr ko staa";
+if (11>8) out "nishto super e";
+else loop 3 out "abe mani";

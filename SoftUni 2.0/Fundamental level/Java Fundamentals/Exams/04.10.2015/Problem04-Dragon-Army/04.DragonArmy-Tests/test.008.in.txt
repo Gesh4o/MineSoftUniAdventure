@@ -1,0 +1,11 @@
+10
+Purple Toshko 12 123 1234
+Purple Asen 11 2222 333
+Purple Rosko 55 141 42
+Green Bastuncho 150 1500 550
+Green Bastuncho 150 100 150
+Green Bastuncho 140 150 550
+Green Bastuncho 120 150 550
+Purple Stamat 128 1242 155
+Green Azsymbastun null null null
+Yellow Stoil null null 0

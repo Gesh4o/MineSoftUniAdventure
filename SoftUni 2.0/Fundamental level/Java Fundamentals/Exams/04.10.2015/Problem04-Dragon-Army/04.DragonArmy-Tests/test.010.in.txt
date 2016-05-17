@@ -1,0 +1,6 @@
+5
+Black Xxx null 100 null
+Black Motko 100 null 100
+Yellow Pichagata 15 155 null
+Black Azis null null null
+Green Bochko 100 1000 10

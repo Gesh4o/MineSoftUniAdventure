@@ -1,0 +1,8 @@
+5
+aaaa
+aaaa
+aaaa
+aaab
+aaba
+(5 4) 2 -7
+End

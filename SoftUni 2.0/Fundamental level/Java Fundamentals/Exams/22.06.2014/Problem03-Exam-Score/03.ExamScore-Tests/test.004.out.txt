@@ -1,0 +1,1 @@
+300 -> [George Ivanov, George Stefanov]; avg=4.39

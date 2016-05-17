@@ -1,0 +1,11 @@
+10
+Black Gosho 50 100 50
+Black Gosho 50 100 50
+Black Gosho 50 100 50
+Black Gosho 50 100 50
+Black Gosho 100 150 100
+Red Pesho 80 160 80
+Red Pesho 80 160 80
+Red Pesho 80 160 80
+Red Pesho 80 160 80
+Red Pesho 200 260 280

@@ -1,0 +1,1 @@
+if (0<1) loop 2 out \"samo tva\"

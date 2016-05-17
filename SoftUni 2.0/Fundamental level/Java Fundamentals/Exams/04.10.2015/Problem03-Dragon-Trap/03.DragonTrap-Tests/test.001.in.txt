@@ -1,0 +1,8 @@
+5
+ababab
+cdcdcd
+ababab
+cdcdcd
+ababab
+(1 1) 2 1
+End

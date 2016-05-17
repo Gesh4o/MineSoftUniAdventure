@@ -1,0 +1,10 @@
+----------------------------------------
+| Name            | Exam Score | Grade |
+----------------------------------------
+| Peter Ivanov    | 306        | 5.26  |
+| George Stefanov | 120        | 3.12  |
+| Maria Petrova   | 400        | 6.00  |
+| Petya Georgieva | 400        | 6.00  |
+| Diana Kirova    | 120        | 3.23  |
+| Darin Mihaylov  | 400        | 5.00  |
+----------------------------------------

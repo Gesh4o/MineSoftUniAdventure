@@ -1,0 +1,2 @@
+[9D, 10D, JD, QD, KD]
+[10D, JD, QD, KD, AD]

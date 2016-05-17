@@ -1,0 +1,2 @@
+Green::(45.00/250.00/10.00)
+-Stamat -> damage: 45, health: 250, armor: 10

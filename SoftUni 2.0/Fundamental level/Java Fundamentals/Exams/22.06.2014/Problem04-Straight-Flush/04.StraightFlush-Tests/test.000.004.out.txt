@@ -1,0 +1,4 @@
+[8H, 9H, 10H, JH, QH]
+[9H, 10H, JH, QH, KH]
+[10S, JS, QS, KS, AS]
+[2H, 3H, 4H, 5H, 6H]

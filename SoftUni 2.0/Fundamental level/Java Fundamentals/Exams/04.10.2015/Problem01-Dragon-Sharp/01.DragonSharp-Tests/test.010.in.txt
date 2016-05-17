@@ -1,0 +1,36 @@
+35
+if (5>8) out "nishto";
+if (5<8) loop 0 out "pa nishto";
+if (12==11) loop 9 out "oshte nishto";
+if (5>12) loop 9 out "bla bla nishto";
+if (5<8) loop 0 out "prazen cikyl";
+if (5>8) out "nishto";
+if (5<8) loop 0 out "pa nishto";
+if (12==11) loop 9 out "oshte nishto";
+if (5>12) loop 9 out "bla bla nishto";
+if (5<8) loop 0 out "prazen cikyl";
+if (5>8) out "nishto";
+if (5<8) loop 0 out "pa nishto";
+if (12==11) loop 9 out "oshte nishto";
+if (5>12) loop 9 out "bla bla nishto";
+if (5<8) loop 0 out "prazen cikyl";
+else out "nishto nishto";
+if (0==0) loop 1 out "samo tva";
+if (5>8) out "nishto";
+if (5<8) loop 0 out "pa nishto";
+if (12==11) loop 9 out "oshte nishto";
+if (5>12) loop 9 out "bla bla nishto";
+if (5<8) loop 0 out "prazen cikyl";
+if (5>8) out "nishto";
+if (5<8) loop 0 out "pa nishto";
+if (12==11) loop 9 out "oshte nishto";
+if (5>12) loop 9 out "bla bla nishto";
+if (5<8) loop 0 out "prazen cikyl";
+if (5>8) out "nishto";
+if (5<8) loop 0 out "pa nishto";
+if (12==11) loop 9 out "oshte nishto";
+if (5>12) loop 9 out "bla bla nishto";
+if (5<8) loop 0 out "prazen cikyl";
+else out "nishto nishto";
+if (0==0) loop 1 out "samo tva";
+if (15>8) loop 2 out "compile time error on this line"

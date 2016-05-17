@@ -1,0 +1,2 @@
+100 -> [George Stefanov, Petya Koleva]; avg=3.39
+300 -> [George Ivanov]; avg=4.39

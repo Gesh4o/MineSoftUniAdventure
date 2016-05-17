@@ -1,0 +1,11 @@
+--------------------------------------------
+| Name                | Exam Score | Grade |
+--------------------------------------------
+| George Ivanov       | 400        | 5.00  |
+| George Stefanov     | 400        | 5.93  |
+| Petya Koleva        | 400        | 5.80  |
+| Aleksandar Stoyanov | 400        | 5.70  |
+| Diana Kirova        | 400        | 5.25  |
+| Ivan Ivanov         | 400        | 5.02  |
+| Kalin Petrov        | 400        | 5.40  |
+--------------------------------------------
