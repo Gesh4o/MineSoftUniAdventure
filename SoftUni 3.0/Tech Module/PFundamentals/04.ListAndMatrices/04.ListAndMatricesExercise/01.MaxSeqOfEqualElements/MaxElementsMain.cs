@@ -27,7 +27,7 @@
             }
 
             for (int i = 0; i < maxCount; i++)
-            { 
+            {
                 Console.Write(maxNumber + " ");
             }
 

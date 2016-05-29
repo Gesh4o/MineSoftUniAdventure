@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.ShortWords", "09.ShortWo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.FoldAndSum", "10.FoldAndSum\10.FoldAndSum.csproj", "{7FC4A3F8-B779-471A-A619-B7DEC3247C6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.PopulationAggreg", "11.PopulationAggreg\11.PopulationAggreg.csproj", "{D478A194-D4E2-4B67-A1D0-BCE5ED49D88B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{7FC4A3F8-B779-471A-A619-B7DEC3247C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FC4A3F8-B779-471A-A619-B7DEC3247C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FC4A3F8-B779-471A-A619-B7DEC3247C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D478A194-D4E2-4B67-A1D0-BCE5ED49D88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D478A194-D4E2-4B67-A1D0-BCE5ED49D88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D478A194-D4E2-4B67-A1D0-BCE5ED49D88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D478A194-D4E2-4B67-A1D0-BCE5ED49D88B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

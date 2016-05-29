@@ -8,124 +8,109 @@
     {
         public static void Main(string[] args)
         {
-            int initialRow = int.Parse(Console.ReadLine());
-            int initialCol = int.Parse(Console.ReadLine());
+            int[] dimensions = Console.ReadLine()
+                   .Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+                   .Select(int.Parse)
+                   .ToArray();
 
-            List<int[]> allSize = new List<int[]>();
 
-            int squareHeight = -1;
-            int squareWidth = -1;
-
-            int[,] matrix = new int[initialRow, initialCol];
+            int[,] matrix = new int[dimensions[0], dimensions[1]];
 
             InitializeMatrix(matrix);
 
-            SetFrames(matrix, squareHeight, squareWidth, allSize);
+            List<Pair> pairs = GetAllFrames(matrix);
 
-            PrintOutput(allSize);
+            PrintOutput(pairs.OrderBy(n => n.ToString()).ToList());
         }
 
-        private static void PrintOutput(List<int[]> allSize)
+        private static List<Pair> GetAllFrames(int[,] matrix)
         {
-            foreach (int[] ints in allSize)
-            {
-                Console.WriteLine(string.Join("x", ints));
-            }
-        }
+            List<Pair> pairs = new List<Pair>();
+            int maxArea = 0;
 
-        private static void SetFrames(int[,] matrix, int squareHeight, int squareWidth, List<int[]> allSize)
-        {
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
                 for (int col = 0; col < matrix.GetLength(1); col++)
                 {
-                    int frameRow = row + 1;
-                    int frameCol = col + 1;
-                    int currentNumber = matrix[row, col];
+                    int currentFrameNumber = matrix[row, col];
 
-                    while (frameCol < matrix.GetLength(1))
+                    for (int rightDirection = col; rightDirection < matrix.GetLength(1); rightDirection++)
                     {
-                        if (matrix[row, frameCol] != currentNumber)
+                        if (matrix[row, rightDirection] != currentFrameNumber)
                         {
-                            frameCol--;
                             break;
                         }
 
-                        frameCol++;
-                    }
-
-                    if (frameCol == matrix.GetLength(1))
-                    {
-                        frameCol--;
-                    }
-
-                    while (frameRow < matrix.GetLength(0))
-                    {
-                        if (matrix[frameRow, frameCol] != currentNumber)
+                        for (int downDirection = row; downDirection < matrix.GetLength(0); downDirection++)
                         {
-                            frameRow--;
-                            break;
+                            if (matrix[downDirection, rightDirection] != currentFrameNumber)
+                            {
+                                break;
+                            }
+
+                            for (int leftDirection = rightDirection; leftDirection >= col; leftDirection--)
+                            {
+                                if (matrix[downDirection, leftDirection] != currentFrameNumber)
+                                {
+                                    break;
+                                }
+
+                                if (leftDirection != col)
+                                {
+                                    continue;
+                                }
+
+                                bool isPossible = true;
+                                for (int upDirection = downDirection; upDirection >= row; upDirection--)
+                                {
+                                    if (matrix[upDirection,leftDirection] != currentFrameNumber)
+                                    {
+                                        isPossible = false;
+                                        break;
+                                    }
+                                }
+
+                                if (isPossible)
+                                {
+                                    int width = GetWidth(col, rightDirection);
+                                    int height = GetHeight(row, downDirection);
+
+                                    int currentArea = width * height;
+
+                                    if (currentArea > maxArea)
+                                    {
+                                        maxArea = currentArea;
+                                        pairs.Clear();
+                                    }
+
+                                    if (currentArea >= maxArea)
+                                    {
+                                        pairs.Add(new Pair(width, height));
+                                    }
+                                }
+                            }
                         }
-
-                        frameRow++;
-                    }
-
-                    if (frameRow == matrix.GetLength(0))
-                    {
-                        frameRow--;
-                    }
-
-                    int[] bottomCorner = { frameRow, frameCol };
-
-                    while (frameCol > col)
-                    {
-                        if (matrix[frameRow, frameCol] != currentNumber)
-                        {
-                            frameCol++;
-                            break;
-                        }
-
-                        frameCol--;
-                    }
-
-                    if (frameCol != col)
-                    {
-                        break;
-                    }
-
-                    while (frameRow > row)
-                    {
-                        if (matrix[frameRow, col] != currentNumber)
-                        {
-                            frameRow++;
-                            break;
-                        }
-
-                        frameRow--;
-                    }
-
-                    if (frameRow != row)
-                    {
-                        break;
-                    }
-
-                    int currentHeight = bottomCorner[0] - row + 1;
-                    int currentWidth = bottomCorner[1] - col + 1;
-
-                    double currentFrameArea = currentHeight * currentWidth;
-                    if (currentFrameArea > squareHeight * squareWidth)
-                    {
-                        allSize.Clear();
-                        allSize.Add(new[] { currentWidth, currentHeight });
-                        squareHeight = currentHeight;
-                        squareWidth = currentWidth;
-                    }
-                    else if (currentFrameArea == squareHeight * squareWidth)
-                    {
-                        allSize.Add(new[] { currentHeight, currentWidth });
+                        
                     }
                 }
             }
+
+            return pairs;
+        }
+
+        private static void PrintOutput(List<Pair> pairs)
+        {
+            Console.WriteLine(string.Join(", ", pairs));
+        }
+
+        private static int GetHeight(int firstRow, int secondRow)
+        {
+            return Math.Abs(secondRow - firstRow) + 1;
+        }
+
+        private static int GetWidth(int firstCol, int secondCol)
+        {
+            return Math.Abs(secondCol - firstCol) + 1;
         }
 
         private static void InitializeMatrix(int[,] matrix)
@@ -143,6 +128,24 @@
                     matrix[row, col] = currentRow[col];
                 }
             }
+        }
+    }
+
+    public class Pair
+    {
+        public Pair(int width, int height)
+        {
+            this.Width = width;
+            this.Height = height;
+        }
+
+        public int Width { get; set; }
+
+        public int Height { get; set; }
+
+        public override string ToString()
+        {
+            return $"{this.Height}x{this.Width}";
         }
     }
 }

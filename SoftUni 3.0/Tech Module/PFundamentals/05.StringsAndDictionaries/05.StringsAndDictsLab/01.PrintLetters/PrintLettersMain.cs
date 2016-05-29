@@ -10,7 +10,7 @@
 
             for (int index = 0; index < input.Length; index++)
             {
-                Console.WriteLine("string[{0}] -> \'{1}\'", index, input[index]);
+                Console.WriteLine("str[{0}] -> \'{1}\'", index, input[index]);
             }
         }
     }
