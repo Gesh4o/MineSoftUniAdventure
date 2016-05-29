@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.RectanglePosition", "06.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.SalesReport", "07.SalesReport\07.SalesReport.csproj", "{A90A4986-7392-477E-8AF9-B9C0F822DB14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.CountWorkingDays", "08.CountWorkingDays\08.CountWorkingDays.csproj", "{B2558446-20FF-45F1-83AF-577A4CD4D45C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{A90A4986-7392-477E-8AF9-B9C0F822DB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A90A4986-7392-477E-8AF9-B9C0F822DB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A90A4986-7392-477E-8AF9-B9C0F822DB14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2558446-20FF-45F1-83AF-577A4CD4D45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2558446-20FF-45F1-83AF-577A4CD4D45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2558446-20FF-45F1-83AF-577A4CD4D45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2558446-20FF-45F1-83AF-577A4CD4D45C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
