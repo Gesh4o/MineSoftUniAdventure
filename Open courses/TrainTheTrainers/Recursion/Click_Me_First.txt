@@ -1,6 +1,0 @@
-Due to size limit I was unable to upload my updated
-presentation (I made two), so please download it here:
-https://github.com/Gesh4o/MineSoftUniAdventure/tree/master/Open%20courses/TrainTheTrainers/Recursion
-Both presentations are uploaded alongside demos but I personnaly prefer
-and will be thankful if the "Recursion-v02.pttx" is visited instead.
-Thanks for understanding! :)
