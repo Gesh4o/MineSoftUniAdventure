@@ -10,7 +10,7 @@
         public static void Main(string[] args)
         {
             int booksCount = int.Parse(Console.ReadLine());
-            List<Book> books = new List<Book>();
+            Library library = new Library();
 
             for (int i = 0; i < booksCount; i++)
             {
@@ -21,36 +21,36 @@
                 DateTime releaseDate = DateTime.ParseExact(bookInfo[3], "dd.MM.yyyy", CultureInfo.InvariantCulture);
                 decimal price = decimal.Parse(bookInfo[5]);
 
-                books.Add(new Book(bookInfo[0], bookInfo[1], bookInfo[2], releaseDate, bookInfo[4], price));
+                library.Books.Add(new Book(bookInfo[0], bookInfo[1], bookInfo[2], releaseDate, bookInfo[4], price));
             }
 
             // Modification method for task 6.
-            // PrintAllBooksAfterDate(books);
+             PrintAllBooksAfterDate(library);
 
-            PrintBooksByAuthorAndPrice(books);
+           // PrintBooksByAuthorAndPrice(library);
         }
-
-        private static void PrintBooksByAuthorAndPrice(List<Book> books)
+ 
+        private static void PrintBooksByAuthorAndPrice(Library library)
         {
-            var grouping = books.GroupBy(b => b.Author);
+            var grouping = library.Books.GroupBy(b => b.Author);
 
-            foreach (IGrouping<string, Book> bookByAuthor in grouping.OrderByDescending(b => b.Sum(bb => bb.Price)))
+            foreach (IGrouping<string, Book> bookByAuthor in grouping.OrderByDescending(b => b.Sum(bb => bb.Price)).ThenBy(b => b.Key))
             {
-                Console.WriteLine($"{bookByAuthor.Key} - {bookByAuthor.Sum(b => b.Price):F2}");
+                Console.WriteLine($"{bookByAuthor.Key} -> {bookByAuthor.Sum(b => b.Price):F2}");
             }
         }
 
-        private static void PrintAllBooksAfterDate(List<Book> books)
+        private static void PrintAllBooksAfterDate(Library library)
         {
             string date = Console.ReadLine();
             DateTime afterDate = DateTime.ParseExact(date, "dd.MM.yyyy", CultureInfo.InvariantCulture);
-            var allAfterDate = books.Where(b => b.ReleaseDate.CompareTo(afterDate) > 0).OrderBy(bb => bb.ReleaseDate).GroupBy(b => b.Title);
+            var allAfterDate = library.Books.Where(b => b.ReleaseDate.CompareTo(afterDate) > 0).OrderBy(bb => bb.ReleaseDate).ThenBy(b => b.Title).GroupBy(b => b.Title);
 
             foreach (IGrouping<string, Book> grouping in allAfterDate)
             {
                 foreach (Book book in grouping)
                 {
-                    Console.WriteLine($"{book.Author} - {book.ReleaseDate.ToString("dd.MM.yyy")}");
+                    Console.WriteLine($"{book.Title} -> {book.ReleaseDate.ToString("dd.MM.yyy")}");
                 }
             }
         }
@@ -79,5 +79,15 @@
         public string ISBN { get; set; }
 
         public decimal Price { get; set; }
+    }
+
+    class Library
+    {
+        public Library()
+        {
+            this.Books = new List<Book>();
+        }
+
+        public List<Book> Books { get; set; }
     }
 }
