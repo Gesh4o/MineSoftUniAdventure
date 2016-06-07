@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.PalindromeIndex", "10.Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.CommonStrings", "11.CommonStrings\11.CommonStrings.csproj", "{4DE77AA2-49FB-430E-9775-5D332B142466}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.PhoneBook", "12.PhoneBook\12.PhoneBook.csproj", "{8A9FF34A-9097-4C48-B5F1-20C2209E0641}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{4DE77AA2-49FB-430E-9775-5D332B142466}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DE77AA2-49FB-430E-9775-5D332B142466}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DE77AA2-49FB-430E-9775-5D332B142466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A9FF34A-9097-4C48-B5F1-20C2209E0641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A9FF34A-9097-4C48-B5F1-20C2209E0641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A9FF34A-9097-4C48-B5F1-20C2209E0641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A9FF34A-9097-4C48-B5F1-20C2209E0641}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
