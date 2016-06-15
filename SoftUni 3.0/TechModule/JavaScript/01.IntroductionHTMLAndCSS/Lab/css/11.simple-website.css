@@ -1,0 +1,58 @@
+h2 {
+    padding: 5px;
+    background-color: #F5F5DC;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 150%;
+}
+
+p {
+    margin: 10px 5px;
+}
+
+.attributes {
+    float: left;
+    width: 100px;
+    margin-top: 0;
+    background-color: #F5F5DC;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.attributes a {
+    display: block;
+    text-align: left;
+    margin: 5px;
+    padding: 8px;
+    text-decoration: none;
+    color: brown;
+}
+
+.attributes a:hover {
+    background-color: #DEB887;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header, footer, aside, main {
+    background: beige;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+footer {
+    clear: both;
+}
+
+main {
+    margin-left: 130px;
+    text-align: left;
+    background: #F5F5F5;
+}
+
+body {
+    text-align: justify;
+    padding: 0;
+    margin: 0;
+}
