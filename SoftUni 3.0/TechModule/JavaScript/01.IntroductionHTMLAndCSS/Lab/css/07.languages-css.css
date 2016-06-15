@@ -1,0 +1,12 @@
+body{
+    background:#EEE;
+    line-height:1.5em;
+    font-size:24pt;
+}
+
+.languages{
+    border: 5px #AAA;
+    background-color: #CCC;
+    padding: 2pt;
+    border-radius: 10pt;
+}

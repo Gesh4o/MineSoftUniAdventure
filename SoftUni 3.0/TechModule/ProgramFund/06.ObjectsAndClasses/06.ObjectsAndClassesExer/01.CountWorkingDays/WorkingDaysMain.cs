@@ -1,51 +1,64 @@
 ﻿namespace _01.CountWorkingDays
 {
     using System;
-    using System.Globalization;
 
     public class WorkingDaysMain
     {
         public static void Main(string[] args)
         {
-            DateTime startDate = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
-            DateTime endDate = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+            int row = int.Parse(Console.ReadLine());
+            int col = int.Parse(Console.ReadLine());
 
-            int workdaysCounter = 0;
-            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
-            {
-                if (CheckIsWorkday(date))
-                {
-                    workdaysCounter++;
-                }
-            }
+            var firstMatrix = InitializeFirstMatrix(row, col);
 
-            Console.WriteLine(workdaysCounter);
+            var secondMatrix = InitializeSecondMatrix(row, col);
+
+            PrintMatrixOfAddition(row, col, firstMatrix, secondMatrix);
         }
 
-        private static bool CheckIsWorkday(DateTime date)
+        private static void PrintMatrixOfAddition(int row, int col, int[,] firstMatrix, int[,] secondMatrix)
         {
-            bool isWorkday = true;
+            int[,] result = new int[row, col];
 
-            if (date.DayOfWeek == DayOfWeek.Sunday || date.DayOfWeek == DayOfWeek.Saturday)
+            for (int i = 0; i < row; i++)
             {
-                isWorkday = false;
-            }
-            else if ((date.Day == 1 && date.Month == 1) ||
-                (date.Day == 3 && date.Month == 3) ||
-                (date.Day == 1 && date.Month == 5) ||
-                (date.Day == 6 && date.Month == 5) ||
-                (date.Day == 24 && date.Month == 5) ||
-                (date.Day == 6 && date.Month == 9) ||
-                (date.Day == 22 && date.Month == 9) ||
-                (date.Day == 1 && date.Month == 11) ||
-                (date.Day == 24 && date.Month == 12) ||
-                (date.Day == 25 && date.Month == 12) ||
-                (date.Day == 26 && date.Month == 12))
-            {
-                isWorkday = false;
-            }
+                for (int j = 0; j < col; j++)
+                {
+                    result[i, j] = firstMatrix[i, j] + secondMatrix[i, j];
 
-            return isWorkday;
+                    Console.Write(result[i, j] + " ");
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        private static int[,] InitializeSecondMatrix(int row, int col)
+        {
+            int[,] secondMatrix = new int[row, col];
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.Write("Enter Matrix({0},{1}): ", i, j);
+                    secondMatrix[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+            return secondMatrix;
+        }
+
+        private static int[,] InitializeFirstMatrix(int row, int col)
+        {
+            int[,] firstMatrix = new int[row, col];
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.Write("Enter Matrix({0},{1}): ", i, j);
+                    firstMatrix[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+            return firstMatrix;
         }
     }
 }
