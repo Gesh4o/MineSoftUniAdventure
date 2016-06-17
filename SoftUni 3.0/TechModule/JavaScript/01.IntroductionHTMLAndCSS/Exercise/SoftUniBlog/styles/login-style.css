@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,300,700,900");
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    line-height: 1px;
+    font: 16px Lato;
+    color: #565656;
+}
+
+.wrapper {
+    overflow: hidden;
+    margin: 0 auto;
+    min-height: 739px;
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+hr {
+    color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-bottom: 1px solid white;
+    width: 60%;
+}
+
+main {
+    margin: 0 auto;
+    min-height: inherit;
+    width: 80%;
+    position: relative;
+    float: right;
+}
+
+header {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+.blog-title {
+    width: 120px;
+    font: 54px Oswald;
+    font-weight: 600;
+    margin: 0 auto 50px;
+    color: #565656;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 8px solid #019c8c;
+}
+
+.sidebar {
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-color: #06c0AB;
+    color: white;
+    font: 32px Lato;
+    font-weight: 100;
+    text-align: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.logo {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.single-menu-element-link {
+    text-decoration: none;
+    color: white;
+    -moz-transition-property: font-weight;
+    -moz-transition-duration: 3ms;
+    -moz-transition-timing-function: linear;
+    -moz-transition-delay: 2.5ms;
+    -webkit-transition-property: font-weight;
+    -webkit-transition-duration: 3ms;
+    -webkit-transition-timing-function: linear;
+    -webkit-transition-delay: 2.5ms;
+    font-weight: 300;
+}
+
+.single-menu-element-link:hover {
+    font-weight: 900;
+    background-color: #019c8c;
+    height: 40px;
+    line-height: 32px;
+    transition: background 0.7s ease,
+    padding 0.5s linear;
+}
+
+.single-menu-element:hover {
+    font-weight: 900;
+    background-color: #019c8c;
+    transition: background 0.7s ease,
+    padding 0.5s linear;
+}
+
+.single-menu-element {
+    padding: 10px;
+}
+
+.recent-posts-title {
+    font: 32px Oswald;
+    font-weight: 600;
+}
+
+.single-recent-post {
+    padding: 10px;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 5%;
+}
+
+.single-post {
+    margin-bottom: 5%;
+}
+
+.dot {
+    margin-top: 13px;
+    margin-right: 10px;
+    float: left;
+    width: 20px;
+    border-radius: 40px;
+    background-color: #019c8c;
+}
+
+.title {
+    font: 32px Oswald;
+    font-weight: 600;
+}
+
+.subtitle {
+    font: 16px Lato;
+    font-weight: 100;
+    margin-left: 3%;
+}
+
+.content {
+    padding-top: 2.5%;
+    font: 16px Lato;
+    font-weight: 500;
+    width: 80%;
+    margin-left: 3%;
+    word-break: normal;
+}
+
+footer {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+}
+
+.wrapper {
+    background: url("../images/background.png");
+    background-size: cover;
+}
+
+.user-login-block {
+    border-radius: 15px;
+    background-color: #f2f2f2;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin: 10% auto;
+    width: 35%;
+    height: 55%;
+    padding: 10px;
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+.title {
+    font: 18px Oswald;
+    font-weight: 400;
+    color: #019c8c;
+    padding: 0 5px 5px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+input {
+    border-radius: 30px;
+    border: 3px solid #f2f2f2;
+    width: 60%;
+    height: 35px;
+    margin: 0 auto 10px;
+    text-align: center;
+}
+
+input:focus {
+    font: 12px Lato;
+    font-weight: 100;
+    outline: none;
+    border: 3px solid;
+}
+
+button {
+    font: 16px Lato;
+    color: white;
+    background-color: #06c0AB;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 30px;
+    width: 50%;
+}
+
+button:hover {
+    background-color: #565656;
+}
+
+.form-link {
+    text-decoration: none;
+    color: #048e76;
+    font: 16px Lato;
+    font-weight: 900;
+    padding: 10px;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
+#register-title {
+    width: 200px;
+}
+
+#register-request-button {
+    background-color: #048e76;
+    color: white;
+}
