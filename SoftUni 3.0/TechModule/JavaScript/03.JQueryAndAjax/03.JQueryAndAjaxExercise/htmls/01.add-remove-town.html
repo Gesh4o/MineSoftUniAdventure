@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add li</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <style>
+        li a { display: none}
+        li:hover a {display: inline}
+    </style>
+</head>
+<body>
+<h2>List of items</h2>
+<form>
+    <ul id="items">
+    </ul>
+</form>
+<input id="text-field" type="text">
+<button id="submit-button" onclick="insertElement('')">Submit</button>
+<script>
+    function insertElement() {
+        let text = $('#text-field').val();
+
+        let li = $('<li>')
+                .append($('<span>').text(text))
+                .append(" ")
+                .append($('<a href="#" onclick="deleteItem(this)">[Delete]</a>'));
+        $('#items').append(li);
+        $('#text-field').val('');
+    }
+
+    function deleteItem(link) {
+        $(link).parent().remove();
+    }
+    </script>
+
+</body>
+</html>

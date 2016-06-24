@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add li</title>
+</head>
+<body>
+<h2>List of items</h2>
+<ul id="towns">
+    <li>
+        Rouse
+    </li>
+    <li>
+        Sofia
+    </li>
+</ul>
+
+<input id="text-field" type="text">
+<button id="submit-button" onclick="insertElement()">Submit</button>
+<script>
+    function insertElement() {
+        let text = document.getElementById('text-field').value;
+        document.getElementById('text-field').value = '';
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(text));
+        document.getElementById('towns').appendChild(li);
+    }
+</script>
+</body>
+</html>

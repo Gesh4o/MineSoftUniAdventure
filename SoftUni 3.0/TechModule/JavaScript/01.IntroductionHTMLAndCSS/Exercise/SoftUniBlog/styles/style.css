@@ -138,6 +138,15 @@ header {
     font-weight: 300;
 }
 
+.single-menu-element-link:hover {
+    font-weight: 900;
+    background-color: #019c8c;
+    height: 40px;
+    line-height: 32px;
+    transition: background 0.7s ease,
+    padding 0.5s linear;
+}
+
 .single-menu-element:hover {
     font-weight: 900;
     background-color: #019c8c;
@@ -202,7 +211,91 @@ article {
 
 footer {
     width: 100%;
-    position: relative;
+    position: absolute;
     bottom: 0;
     text-align: center;
+}
+
+.wrapper {
+    background: url("../images/background.png");
+    background-size: cover;
+}
+
+.user-login-block {
+    border-radius: 15px;
+    background-color: #f2f2f2;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin: 10% auto;
+    width: 35%;
+    height: 55%;
+    padding: 10px;
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+.title {
+    font: 18px Oswald;
+    font-weight: 400;
+    color: #019c8c;
+    padding: 0 5px 5px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+input {
+    border-radius: 30px;
+    border: 3px solid #f2f2f2;
+    width: 60%;
+    height: 35px;
+    margin: 0 auto 10px;
+    text-align: center;
+}
+
+input:focus {
+    font: 12px Lato;
+    font-weight: 100;
+    outline: none;
+    border: 3px solid;
+}
+
+button {
+    font: 16px Lato;
+    color: white;
+    background-color: #06c0AB;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 30px;
+    width: 50%;
+}
+
+button:hover {
+    background-color: #565656;
+}
+
+.form-link {
+    text-decoration: none;
+    color: #048e76;
+    font: 16px Lato;
+    font-weight: 900;
+    padding: 10px;
+}
+
+#register-title {
+    width: 200px;
+}
+
+#register-request-button {
+    background-color: #048e76;
+    color: white;
+}
+
+#index-wrapper{
+    background: none;
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Read more example</title>
+</head>
+<body>
+<div>
+This text is not hidden.<a href="#" id="more" onclick="showText()">Read more...</a>
+<span id="hidden-text" style="display :none">This tex is hidden.This tex is hidden.This tex is hidden.This tex is hidden.This tex is hidden.This tex is hidden.</span>
+</div>
+<script>
+    function showText() {
+    document.getElementById('more').style.display = "none";
+    document.getElementById('hidden-text').style.display = "inline";
+    }
+</script>
+</body>
+</html>
