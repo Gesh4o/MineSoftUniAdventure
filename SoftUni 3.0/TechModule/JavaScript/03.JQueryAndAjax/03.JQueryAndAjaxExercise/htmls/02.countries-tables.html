@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countries table</title>
+    <script src="../scripts/jquery-3.0.0.min.js"></script>
+    <script src="../scripts/02.countries-table.js"></script>
+</head>
+<body>
+<h1>Countries</h1><br>
+<table id="tableCountries">
+    <style>
+        td, th {
+            background: #DDD;
+            padding: 5px 10px
+        }
+    </style>
+    <th>Country</th>
+    <th>Capital</th>
+    <th>Action</th>
+</table>
+<br>
+<span>Country: </span>
+<input id="textCountryName" type="text">
+<br>
+<span>Capital: </span>
+<input id="textCapitalName" type="text">
+<input type="button" onclick="addCountry()" value="Add">
+
+</body>
+</html>

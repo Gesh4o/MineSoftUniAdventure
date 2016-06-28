@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books Library</title>
+    <script src="../scripts/jquery-3.0.0.min.js"></script>
+    <script src="../scripts/book-library.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/site.css">
+</head>
+<body>
+<header id="menu">
+    <a href="#" id="linkHome">Home</a>
+    <a href="#" id="linkLogin">Login</a>
+    <a href="#" id="linkRegister">Register</a>
+    <a href="#" id="linkListBooks">List books</a>
+    <a href="#" id="linkCreateBooks">Create book</a>
+    <a href="#" id="linkLogout">Logout</a>
+</header>
+<main>
+    <section id="loadingBox">Loading...</section>
+    <section id="infoBox">Info</section>
+    <section id="errorBox">Error!</section>
+
+    <section id="viewHome">
+        <h1>Hello!</h1>
+        Welcome to our book library!
+    </section>
+
+    <section id="viewLogin">
+        <h1>Please login!</h1>
+        <form id="formLogin">
+            <div>Username:</div>
+            <input id="loginUsernameText" type="text" required>
+            <div>Password:</div>
+            <input id="loginPasswordText" type="password" required>
+            <br>
+            <br>
+            <input type="submit" value="Login">
+        </form>
+    </section>
+
+    <section id="viewRegister">
+        <h1>Please register here!</h1>
+        <form id="formRegister">
+            <div>Username:</div>
+            <input id="registerUsernameText" type="text" required>
+            <div>Password:</div>
+            <input id="registerPasswordText" type="password" required>
+            <br>
+            <br>
+            <input type="submit" value="Register">
+        </form>
+    </section>
+    <section id="viewBooks">
+        <h1>Books</h1>
+         <p id="paragraphBookProgress">Loading...</p>
+        <div id="books"></div>
+    </section>
+
+    <section id="viewCreateBook">
+        <h1>Create book</h1>
+        <form id="formCreateBook">
+            <div>Title:</div>
+            <input id="creteBookTitleText" type="text" required>
+            <div>Author:</div>
+            <input id="createBookAuthorText" type="text" required>
+            <div>Description:</div>
+            <textarea id="createBookDescriptionText" rows="10" required></textarea>
+            <br>
+            <br>
+            <input type="submit" value="Create">
+        </form>
+    </section>
+</main>
+<footer>
+    Books Library - Simple project
+</footer>
+</body>
+</html>

@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add li</title>
-    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <title>Add/Remove item</title>
+    <script src="../scripts/jquery-3.0.0.min.js"></script>
     <style>
-        li a { display: none}
-        li:hover a {display: inline}
+        li a {
+            display: none
+        }
+
+        li:hover a {
+            display: inline
+        }
     </style>
 </head>
 <body>
@@ -32,7 +37,6 @@
     function deleteItem(link) {
         $(link).parent().remove();
     }
-    </script>
-
+</script>
 </body>
 </html>
