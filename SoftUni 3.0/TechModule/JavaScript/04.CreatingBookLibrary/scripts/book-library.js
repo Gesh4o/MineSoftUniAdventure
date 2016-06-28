@@ -1,6 +1,6 @@
 const kinveyBaseUrl = 'https://baas.kinvey.com/';
-const kinveyAppKey = 'kid_ByYYiUcS';
-const kinveyAppSecret = 'da1342c2999346c29e31577a3a8e76d6';
+const kinveyAppKey = 'Enter app key here';
+const kinveyAppSecret = 'Enter app secret here';
 
 function handleError(response) {
     let errorMsg = JSON.stringify(response);
