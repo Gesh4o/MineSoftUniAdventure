@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Read posts</title>
+    <script src="jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<button id="loadPosts">Load Posts from Kinvey</button>
+<br>
+<script>
+    $(function () {
+        $('#loadPosts').click(function () {
+            let USERNAME = "guest", PASSWORD = "guest";
+            let authBase64 = btoa(USERNAME + ":" + PASSWORD);
+            $.ajax({
+                method: "GET",
+                url: "https://baas.kinvey.com/appdata/" +
+                "appKey" +
+                "/posts",
+                headers: {"Authorization": "Basic " + authBase64},
+                success: showPosts,
+                error: showError
+            });
+        });
+
+        $('#createPosts').click(function () {
+            let USERNAME = "guest", PASSWORD = "guest";
+            let authBase64 = btoa(USERNAME + ":" + PASSWORD);
+            console.log($('#newPostTitle').val());
+            let postData = {
+                title: $('#newPostTitle').val(),
+                body: $('#newPostBody').val()
+            }
+            $.ajax({
+                method: "POST",
+                url: "https://baas.kinvey.com/appdata/" +
+                "appKey" +
+                "/posts",
+                headers: {"Authorization": "Basic " + authBase64},
+                data: postData,
+                success: showSuccess,
+                error: showError
+            });
+        });
+    });
+
+    function showPosts(data) {
+        let ul = $('<ul>');
+        for (let post of data) {
+            ul.append($('<li>').text(
+                    post.title + " -> " + post.body));
+        }
+        $('body').append(ul);
+
+    }
+
+    function showError() {
+        let errorMsg = "Error: " + JSON.stringify(data);
+        $('body').append($('<div>').text(errorMsg));
+    }
+
+
+    function showSuccess(data, status) {
+        let responseMsg = "Created: " + JSON.stringify(data);
+        $('body').append($('<div>').text(responseMsg));
+    }
+    function showError(data, status) {
+        let errorMsg = "Error: " + JSON.stringify(data);
+        $('body').append($('<div>').text(errorMsg));
+    }
+
+</script>
+
+Title: <input type="text" id="newPostTitle"/><br>
+Body: <input type="text" id="newPostBody"/><br>
+<button id="createPosts">Create New Post</button>
+</body>
+</html>
