@@ -1,0 +1,13 @@
+{
+  "name": "exam",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "multiparty": "4.1.2",
+    "typing": "0.1.9"
+  }
+}

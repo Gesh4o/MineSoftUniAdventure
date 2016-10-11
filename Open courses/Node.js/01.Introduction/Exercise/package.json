@@ -1,0 +1,14 @@
+{
+  "name": "Node",
+  "version": "1.0.0",
+  "description": "",
+  "engine": "6.5.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
