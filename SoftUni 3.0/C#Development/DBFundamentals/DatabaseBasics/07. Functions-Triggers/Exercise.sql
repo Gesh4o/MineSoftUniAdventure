@@ -288,7 +288,7 @@ SELECT u.Username, g.Name AS Game,c.Name AS Character,  s.Strength , s.Defence, 
 	LEFT JOIN [dbo].[Statistics] AS s ON s.Id = c.StatisticId
 	ORDER BY s.Strength DESC, s.Defence DESC, s.Speed DESC, s.Mind DESC, s.Luck DESC
 
-	-- Problem 25.	All Items with Greater than Average Statistics
+-- Problem 25.	All Items with Greater than Average Statistics
 SELECT i.Name, i.Price, i.MinLevel, s.Strength, s.Defence, s.Speed, s.Luck, s.Mind FROM Items AS i
 	INNER JOIN [dbo].[Statistics] AS s ON s.Id = i.StatisticId
 	WHERE s.Mind > (SELECT AVG(st.Mind) FROM [dbo].[Statistics] AS st) AND
@@ -303,44 +303,123 @@ SELECT i.Name, i.Price, i.MinLevel, gt.Name AS 'Forbidden Game Type' FROM Items 
  ORDER BY gt.Name DESC, i.Name ASC
 
  -- Problem 27. 
- DECLARE @alexId INT = (SELECT Id FROM Users WHERE Username = 'Alex')
-
+DECLARE @alexId INT = (SELECT Id FROM Users WHERE Username = 'Alex')
 DECLARE @gameId INT = (SELECT Id FROM Games WHERE Name = 'Edinburgh')
-
-DECLARE @itemSUM MONEY = (SELECT SUM(p.Price) FROM (SELECT i.Id, i.Price, ug.GameId FROM Items AS i
-	CROSS JOIN UsersGames  AS ug
-	WHERE ug.UserId = @alexId AND ug.GameId = @gameId
-	AND i.Name IN ('Blackguard', 'Bottomless Potion of Amplification', 
+DECLARE @userGameID INT = (SELECT Id FROM UsersGames WHERE UserId = @alexId AND GameId = @gameId)
+DECLARE @itemSUM MONEY = (SELECT SUM(p.Price) FROM (SELECT i.Id, i.Price FROM Items AS i
+	WHERE i.Name IN ('Blackguard', 'Bottomless Potion of Amplification', 
 	'Eye of Etlich (Diablo III)', 'Gem of Efficacious Toxin', 
-	'Golden Gorget of Leoric', 'Hellfire Amulet')) AS p)
+	'Golden Gorget of Leoric', 'Hellfire Amulet'))
+	AS p)
 
-INSERT INTO UserGameItems SELECT p.Id AS ItemId, p.GameId AS UserGameId FROM (SELECT i.Id, i.Price, ug.GameId FROM Items AS i
+INSERT INTO UserGameItems SELECT p.ItemId, p.UserGameId FROM (SELECT i.Id As ItemId, ug.Id AS UserGameId FROM Items AS i
 	CROSS JOIN UsersGames  AS ug
-	WHERE ug.UserId = @alexId AND ug.GameId = @gameId
+	WHERE ug.Id = @userGameID
 	AND i.Name IN ('Blackguard', 'Bottomless Potion of Amplification', 
 	'Eye of Etlich (Diablo III)', 'Gem of Efficacious Toxin', 
 	'Golden Gorget of Leoric', 'Hellfire Amulet')) AS p
 
 UPDATE UsersGames
 SET Cash -= @itemSUM
-WHERE UserId = @alexId
+WHERE Id = @userGameID
 
 SELECT u.Username, g.Name, ug.Cash, i.Name AS 'Item Name' FROM Users AS u
 	INNER JOIN UsersGames AS ug ON ug.UserId = u.Id
 	LEFT JOIN Games AS g ON g.Id = ug.GameId
 	LEFT JOIN UserGameItems AS ugi ON ugi.UserGameId = ug.Id
 	LEFT JOIN Items AS i ON i.Id = ugi.ItemId
-	WHERE g.Id = @gameId
+	WHERE g.Id = 221
 	ORDER BY i.Name
 
+-- Problem 28.
+SELECT p.PeakName, m.MountainRange, p.Elevation FROM Peaks AS p
+	INNER JOIN Mountains AS m ON m.Id = p.MountainId
+	ORDER BY p.Elevation DESC, p.PeakName ASC
 
-	DECLARE @alexId INT = (SELECT Id FROM Users WHERE Username = 'Alex')
+-- Problem 29.
+SELECT p.PeakName, m.MountainRange AS Mountain, c.CountryName, con.ContinentName  FROM Peaks AS p
+	INNER JOIN Mountains AS m ON m.Id = p.MountainId
+	INNER JOIN MountainsCountries AS mc on mc.MountainId = m.Id
+	INNER JOIN Countries AS c ON c.CountryCode = mc.CountryCode
+	INNER JOIN Continents AS con ON con.ContinentCode = c.ContinentCode
+	ORDER BY p.PeakName ASC, c.CountryName ASC
 
-DECLARE @gameId INT = (SELECT Id FROM Games WHERE Name = 'Edinburgh')
+-- Problem 30.
+SELECT co.CountryName, con.ContinentName,
+CASE
+	WHEN COUNT(r.Id) IS NULL THEN 0
+	ELSE COUNT(r.Id)
+END
+AS RiversCount, 
+CASE
+	WHEN SUM(r.Length) IS NULL THEN 0
+	ELSE SUM(r.Length)
+END
+AS TotalLength
+FROM Countries AS co
+	LEFT JOIN CountriesRivers AS cr ON cr.CountryCode = co.CountryCode
+	LEFT JOIN Rivers AS r ON r.Id = cr.RiverId
+	LEFT JOIN Continents AS con ON con.ContinentCode = co.ContinentCode
+	GROUP BY co.CountryName, con.ContinentName
+	ORDER BY RiversCount DESC, TotalLength DESC, co.CountryName ASC
 
-	SELECT p.Id AS ItemId, p.GameId AS UserGameId FROM (SELECT i.Id, i.Price, ug.GameId FROM Items AS i
-	CROSS JOIN UsersGames  AS ug
-	WHERE ug.UserId = @alexId AND ug.GameId = @gameId
-	AND i.Name IN ('Blackguard', 'Bottomless Potion of Amplification', 
-	'Eye of Etlich (Diablo III)', 'Gem of Efficacious Toxin', 
-	'Golden Gorget of Leoric', 'Hellfire Amulet')) AS p
+-- Problem 31.
+SELECT cu.CurrencyCode, cu.Description AS Currency, COUNT(co.CountryName) AS NumberOfCountries FROM Currencies AS cu 
+ LEFT JOIN Countries AS co ON co.CurrencyCode = cu.CurrencyCode
+ GROUP BY cu.CurrencyCode, cu.Description
+ ORDER BY COUNT(co.CountryName) DESC, cu.Description ASC
+
+-- Problem 32.
+SELECT con.ContinentName, SUM(cou.AreaInSqKm) AS CountriesArea, SUM(CAST(cou.Population AS BIGINT)) AS CountriesPopulation FROM Continents AS con
+	INNER JOIN Countries AS cou ON cou.ContinentCode = con.ContinentCode
+	GROUP BY con.ContinentName
+	ORDER BY SUM(CAST(cou.Population AS BIGINT)) DESC
+
+-- Problem 33.
+CREATE TABLE Monasteries
+(
+Id INT PRIMARY KEY IDENTITY,
+Name VARCHAR(50),
+CountryCode CHAR(2),
+IsDeleted TINYINT
+CONSTRAINT FK_Monasteries_CountryCode FOREIGN KEY (CountryCode) REFERENCES Countries(CountryCode)
+)
+
+INSERT INTO Monasteries(Name, CountryCode) VALUES
+('Rila Monastery “St. Ivan of Rila”', 'BG'), 
+('Bachkovo Monastery “Virgin Mary”', 'BG'),
+('Troyan Monastery “Holy Mother''s Assumption”', 'BG'),
+('Kopan Monastery', 'NP'),
+('Thrangu Tashi Yangtse Monastery', 'NP'),
+('Shechen Tennyi Dargyeling Monastery', 'NP'),
+('Benchen Monastery', 'NP'),
+('Southern Shaolin Monastery', 'CN'),
+('Dabei Monastery', 'CN'),
+('Wa Sau Toi', 'CN'),
+('Lhunshigyia Monastery', 'CN'),
+('Rakya Monastery', 'CN'),
+('Monasteries of Meteora', 'GR'),
+('The Holy Monastery of Stavronikita', 'GR'),
+('Taung Kalat Monastery', 'MM'),
+('Pa-Auk Forest Monastery', 'MM'),
+('Taktsang Palphug Monastery', 'BT'),
+('Sümela Monastery', 'TR')
+
+UPDATE Countries
+	SET IsDeleted = 0
+WHERE CountryCode IN (SELECT cou.CountryCode FROM Countries AS cou 
+					LEFT JOIN CountriesRivers AS cr ON cr.CountryCode = cou.CountryCode
+					LEFT JOIN Rivers AS r ON r.Id = cr.RiverId 
+					GROUP BY cou.CountryCode
+					HAVING (COUNT(r.Id)) <= 3)
+
+SELECT m.Name, cou.CountryName FROM [dbo].[Monasteries] AS m 
+	LEFT JOIN Countries AS cou ON cou.CountryCode = m.CountryCode
+	WHERE m.IsDeleted = 0
+	ORDER BY m.Name
+
+ALTER TABLE Countries
+ADD IsDeleted TINYINT
+CONSTRAINT D_Value DEFAULT 0
+
+-- Problem 34.
