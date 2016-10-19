@@ -8,7 +8,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "4.14.0",
-    "standard": "8.*",
+    "mongoose": "4.6.4",
+    "pug": "2.0.0-beta6",
     "standart": "6.0.0"
   }
 }
