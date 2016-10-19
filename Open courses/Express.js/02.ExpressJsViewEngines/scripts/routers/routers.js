@@ -1,4 +1,7 @@
-const homeRouter = require('./home-router')
-const postRouter = require('./post-router')
+const homeRouter = require('./home')
+const postRouter = require('./post')
+const defaultRouter = require('./default')
 
-module.exports = { 'home-router': homeRouter, 'post-router': postRouter }
+module.exports = { 'homeRouter': homeRouter,
+                   'postRouter': postRouter,
+                   'defaultRouter': defaultRouter }

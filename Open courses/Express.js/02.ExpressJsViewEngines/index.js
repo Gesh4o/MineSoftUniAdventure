@@ -9,29 +9,13 @@ app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
 app.use(bodyParser.urlencoded({'extended': true}))
 
-app.use('/', routers['home-router'])
+app.use('/', routers.homeRouter)
 
-// app.get('/all', (req, res) => {
-// })
-
-app.use('/posts', routers['post-router'])
-
-// app.get('posts/details/:id', (req, res) => {
-// })
-
-// app.get('posts/update/:id', (req, res) => {
-// })
-
-// app.get('posts/delete/:id', (req, res) => {
-// })
-
-// app.post('posts/create', (req, res) => {
-// })
+app.use('/posts', routers.postRouter)
 
 // app.post('posts/update/:id', (req, res) => {
 // })
 
-// app.all('*', (req, res) => {
-// })
+app.all('*', routers.defaultRouter)
 
 app.listen(port)

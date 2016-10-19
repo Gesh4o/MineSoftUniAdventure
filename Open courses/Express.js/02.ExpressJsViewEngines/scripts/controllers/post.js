@@ -28,3 +28,9 @@ module.exports.details = (id) => {
     return result
   })
 }
+
+module.exports.delete = (id) => {
+  return database.deletePost(id).then(isDeleted => {
+    return isDeleted
+  })
+}

@@ -11,6 +11,11 @@ module.exports.savePost = (postObject) => {
 }
 
 module.exports.deletePost = (id) => {
+  return Post.findByIdAndRemove(id).then(query => {
+    if (query) {
+      return true
+    }
+  })
 }
 
 module.exports.updatePost = (postObject) => {

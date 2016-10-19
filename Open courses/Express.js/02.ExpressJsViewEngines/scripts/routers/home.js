@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
   let posts = database.getLastPosts(blogsCount)
   console.log(posts)
   res.send('Hello, it\'s me!')
-  res.end()
 })
 
 module.exports = router
