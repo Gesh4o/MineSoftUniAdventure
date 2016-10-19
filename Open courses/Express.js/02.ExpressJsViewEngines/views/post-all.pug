@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    title Document
+    each (post in posts)
+        div.wrapper
+            div.title = post.title
+            div.author = post.author
+            div.date = post.date
+            div.content = post.content
+body
+    

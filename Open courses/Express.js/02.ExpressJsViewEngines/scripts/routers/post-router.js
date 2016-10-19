@@ -8,8 +8,21 @@ router.get('/create', (req, res) => {
 })
 
 router.post('/create', (req, res) => {
-  postController.create()
-  res.end()
+  postController.create(req.body).then((id) => {
+    res.redirect(`/posts/details?id=${id.toString()}`)
+  })
+})
+
+router.get('/all', (req, res) => {
+  let posts = postController.all()
+  res.render('post-all', posts)
+})
+
+router.get('/details?:id', (req, res) => {
+  let id = req.query.id
+  postController.details(id).then((post) => {
+    res.render('post-details', {post})
+  })
 })
 
 module.exports = router
