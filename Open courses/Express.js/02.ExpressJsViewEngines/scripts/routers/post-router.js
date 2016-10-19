@@ -14,8 +14,9 @@ router.post('/create', (req, res) => {
 })
 
 router.get('/all', (req, res) => {
-  let posts = postController.all()
-  res.render('post-all', posts)
+  postController.all().then(posts => {
+    res.render('post-all', {posts})
+  })
 })
 
 router.get('/details?:id', (req, res) => {

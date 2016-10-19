@@ -23,7 +23,7 @@ module.exports.updatePost = (postObject) => {
 }
 
 module.exports.allPosts = () => {
-  Post.find().then((posts) => {
+  return Post.find().then((posts) => {
     return posts
   })
 }

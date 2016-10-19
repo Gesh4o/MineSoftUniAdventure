@@ -18,7 +18,9 @@ module.exports.create = (postObject) => {
 }
 
 module.exports.all = () => {
-  return database.allPosts()
+  return database.allPosts().then(posts => {
+    return posts
+  })
 }
 
 module.exports.details = (id) => {
