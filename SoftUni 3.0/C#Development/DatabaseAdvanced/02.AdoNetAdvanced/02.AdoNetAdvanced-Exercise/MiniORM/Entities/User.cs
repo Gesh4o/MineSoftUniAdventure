@@ -29,6 +29,8 @@
             this.registrationDate = registrationDate;
         }
 
+        public int Id => this.id;
+
         public string Username => this.username;
 
         public string Password => this.password;

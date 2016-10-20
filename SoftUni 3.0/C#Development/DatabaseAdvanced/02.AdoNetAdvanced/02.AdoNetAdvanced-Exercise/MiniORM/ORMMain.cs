@@ -13,9 +13,9 @@
             DatabaseConnectionStringBuilder connectionStringBuilder = new DatabaseConnectionStringBuilder("MiniORM");
 
             EntityManager entityManager = new EntityManager(connectionStringBuilder.ConnectionString, isCodeFirst);
-            User toni = new User("TonyButtony", "TainoObichamAzis14", 13, DateTime.Now);
+            User toni = entityManager.FindById<User>(-1);
 
-            Console.WriteLine(entityManager.Persist<User>(toni));
+            Console.WriteLine(toni.Username);
         }
     }
 }

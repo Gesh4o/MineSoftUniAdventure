@@ -2,7 +2,7 @@
 {
     using System.Data.SqlClient;
 
-    class DatabaseConnectionStringBuilder
+    public class DatabaseConnectionStringBuilder
     {
         private SqlConnectionStringBuilder connectionBuilder;
 

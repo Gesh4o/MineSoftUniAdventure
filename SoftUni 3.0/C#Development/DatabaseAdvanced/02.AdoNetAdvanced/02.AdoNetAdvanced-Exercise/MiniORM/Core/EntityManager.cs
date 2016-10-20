@@ -10,7 +10,7 @@ namespace MiniORM.Core
     using System.Linq;
     using System.Text;
 
-    class EntityManager : IDbContext
+    public class EntityManager : IDbContext
     {
         private string connectionString;
 
@@ -63,6 +63,7 @@ namespace MiniORM.Core
 
             using (this.sqlConnection = new SqlConnection(this.connectionString))
             {
+                this.sqlConnection.Open();
                 SqlCommand findById = new SqlCommand(
                     $"SELECT * FROM {GetTableName(typeof(T))} WHERE Id = {id}",
                     this.sqlConnection);
@@ -227,7 +228,7 @@ namespace MiniORM.Core
             }
 
             // Instantiate new entity.
-            T entity = (T)typeof(T).GetConstructor(types).Invoke(paramaters);
+            T entity = (T)typeof(T).GetConstructor(types).Invoke(values);
 
             // Set it's Id.
             typeof(T).GetFields(BindingFlags.Instance | BindingFlags.NonPublic).FirstOrDefault(f => f.IsDefined(typeof(IdAttribute))).SetValue(entity, paramaters[0]);
@@ -326,7 +327,7 @@ namespace MiniORM.Core
                     rowsAffected = insertEntity.ExecuteNonQuery();
 
                     SqlCommand findId = new SqlCommand($"SELECT Max(Id) FROM {GetTableName(entity.GetType())}", this.sqlConnection);
-                    int id = (int)findId.ExecuteScalar() + 1;
+                    int id = (int)findId.ExecuteScalar();
 
                     FieldInfo idFieldInfo = entity.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic).FirstOrDefault(f => f.IsDefined(typeof(IdAttribute)));
                     idFieldInfo.SetValue(entity, id);
