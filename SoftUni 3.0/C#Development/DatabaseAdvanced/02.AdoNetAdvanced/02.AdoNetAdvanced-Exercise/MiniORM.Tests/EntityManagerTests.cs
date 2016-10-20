@@ -4,12 +4,14 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using MiniORM.Entities;
     using MiniORM.Core;
+    using System.Collections;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Using MiniORM.Entities and not mocked db.
     /// </summary>
     [TestClass]
-    public class FindTest
+    public class EntityManagerTests
     {
         private const bool isCodeFirst = false;
         private DatabaseConnectionStringBuilder connectionStringBuilder;
@@ -40,6 +42,32 @@
         public void GetEntityById_WithInvalidId_ShouldThrowException()
         {
             this.entityManager.FindById<User>(-1);
+        }
+
+        [TestMethod]
+        public void UpdateExistingEntity_FoundById_ShouldChangeState()
+        {
+            int age = 31;
+            int id = 1;
+            User user = this.entityManager.FindById<User>(id);
+            user.Age = age;
+            this.entityManager.Persist<User>(user);
+
+            User updatedUser = this.entityManager.FindById<User>(id);
+
+            Assert.IsTrue(updatedUser.Age == age, "Entity values were not updated properly!");
+        }
+
+        [TestMethod]
+        public void FilterAllEntitiesByCondition_ShouldReturnProperCollection()
+        {
+            int age = 18;
+            IEnumerable<User> users = this.entityManager.FindAll<User>($"Age > {age}");
+
+            foreach (User user in users)
+            {
+                Assert.IsTrue(user.Age > 18);
+            }
         }
 
         private static bool AreEqual(User user, User returnedUser)

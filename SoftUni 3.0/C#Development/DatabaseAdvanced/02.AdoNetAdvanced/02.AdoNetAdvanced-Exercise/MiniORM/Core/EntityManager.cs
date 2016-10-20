@@ -39,12 +39,12 @@ namespace MiniORM.Core
                 condition = "1 = 1";
             }
 
-            string query = $"SELECT * FROM {GetTableName(typeof(T))} WHERE @condition";
+            string query = $"SELECT * FROM {GetTableName(typeof(T))} WHERE " + condition;
 
             using (this.sqlConnection = new SqlConnection(this.connectionString))
             {
+                this.sqlConnection.Open();
                 SqlCommand findByCondition = new SqlCommand(query, this.sqlConnection);
-                findByCondition.Parameters.AddWithValue("@condition", condition);
                 SqlDataReader reader = findByCondition.ExecuteReader();
 
                 if (!reader.HasRows)
@@ -299,12 +299,12 @@ namespace MiniORM.Core
 
                 foreach (FieldInfo field in fields)
                 {
-                    updateQuery.Append($"{field.Name} = {field.GetValue(entity)}, ");
+                    updateQuery.Append($"{field.Name} = '{field.GetValue(entity)}', ");
                 }
 
                 updateQuery
                     .Remove(updateQuery.Length - 2, 2)
-                    .Append($"WHERE Id = {idFieldInfo.GetValue(entity)}");
+                    .Append($" WHERE Id = {idFieldInfo.GetValue(entity)}");
 
 
                 return updateQuery.ToString();

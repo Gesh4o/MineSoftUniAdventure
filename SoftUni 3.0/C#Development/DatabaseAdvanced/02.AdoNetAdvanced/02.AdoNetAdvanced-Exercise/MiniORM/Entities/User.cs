@@ -31,11 +31,23 @@
 
         public int Id => this.id;
 
-        public string Username => this.username;
+        public string Username
+        {
+            get { return this.username; }
+            set { this.username = value; }
+        }
 
-        public string Password => this.password;
+        public string Password
+        {
+            get { return this.password; }
+            set { this.password = value; }
+        }
 
-        public int Age => this.age;
+        public int Age
+        {
+            get { return this.age; }
+            set { this.age = value; }
+        }
 
         public DateTime RegistrationDate => this.registrationDate;
     }
