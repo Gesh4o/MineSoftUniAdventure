@@ -124,5 +124,15 @@
                             user.Age == returnedUser.Age &&
                             areDatesSame;
         }
+
+        [TestMethod]
+        public void DeleteEntity_AfterInsert_ShouldRemoveEntityFromDatabase()
+        {
+            Book book = new Book("Pesho", "Gosho", DateTime.Now, "BG", false);
+            this.entityManager.Persist<Book>(book);
+            bool hasDeleted = this.entityManager.Delete<Book>($"Id = {book.Id}");
+
+            Assert.IsTrue(hasDeleted);
+        }
     }
 }

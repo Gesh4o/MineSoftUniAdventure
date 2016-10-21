@@ -15,8 +15,24 @@
             DatabaseConnectionStringBuilder connectionStringBuilder = new DatabaseConnectionStringBuilder("MiniORM");
 
             EntityManager entityManager = new EntityManager(connectionStringBuilder.ConnectionString, isCodeFirst);
-        
 
+            UpdateRecords(entityManager);
+        }
+
+        private static void UpdateRecords(EntityManager entityManager)
+        {
+            int year = int.Parse(Console.ReadLine());
+
+            IEnumerable<Book> books = entityManager.FindAll<Book>($"YEAR(PublishedOn) > {year} AND IsHardCovered = 1");
+
+            Console.WriteLine($"Books released after {year}: {books.Count()}");
+            foreach (Book book in books.OrderBy(b=> b.Title))
+            {
+                book.Title = book.Title.ToUpper();
+                entityManager.Persist<Book>(book);
+
+                Console.WriteLine(entityManager.FindById<Book>(book.Id).Title);
+            }
         }
 
         private static void RandomizeBooksRatings(EntityManager entityManager)

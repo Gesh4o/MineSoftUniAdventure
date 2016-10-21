@@ -96,10 +96,11 @@ namespace MiniORM.Core
             }
 
             T entity = default(T);
-            string query = $"SELECT * FROM {GetTableName(typeof(T))} WHERE @condition";
+            string query = $"SELECT * FROM {GetTableName(typeof(T))} WHERE {condition}";
 
             using (this.sqlConnection = new SqlConnection(this.connectionString))
             {
+                this.sqlConnection.Open();
                 SqlCommand findByCondition = new SqlCommand(query, this.sqlConnection);
                 findByCondition.Parameters.AddWithValue("@condition", condition);
                 SqlDataReader reader = findByCondition.ExecuteReader();
@@ -112,6 +113,21 @@ namespace MiniORM.Core
 
             return entity;
         }
+
+        public bool Delete<T>(string condition)
+        {
+            string query = $"DELETE FROM {GetTableName(typeof(T))} WHERE {condition}";
+
+            using (this.sqlConnection = new SqlConnection(this.connectionString))
+            {
+                this.sqlConnection.Open();
+                SqlCommand deleteByCondition = new SqlCommand(query, this.sqlConnection);
+                int affectedRows = deleteByCondition.ExecuteNonQuery();
+
+                return affectedRows > 0;
+            }
+        }
+
 
         public bool Persist<T>(object entity)
         {

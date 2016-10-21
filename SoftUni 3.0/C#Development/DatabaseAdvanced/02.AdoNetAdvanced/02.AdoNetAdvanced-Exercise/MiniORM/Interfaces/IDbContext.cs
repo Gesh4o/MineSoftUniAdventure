@@ -15,5 +15,7 @@
         T FindFirst<T>();
 
         T FindFirst<T>(string condition);
+
+        bool Delete<T>(string condition);
     }
 }
