@@ -13,9 +13,10 @@
             DatabaseConnectionStringBuilder connectionStringBuilder = new DatabaseConnectionStringBuilder("MiniORM");
 
             EntityManager entityManager = new EntityManager(connectionStringBuilder.ConnectionString, isCodeFirst);
-            User toni = entityManager.FindById<User>(-1);
 
-            Console.WriteLine(toni.Username);
+            int n = int.Parse(Console.ReadLine());
+            bool isHardCovered = true;
+
         }
     }
 }

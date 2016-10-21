@@ -279,8 +279,9 @@ namespace MiniORM.Core
                 using (this.sqlConnection = new SqlConnection(this.connectionString))
                 {
                     this.sqlConnection.Open();
-                    string updateQuery = GetUpdateQuery(entity, idFieldInfo);
+                    string updateQuery = GetUpdateQueryWithParams(entity, idFieldInfo);
                     SqlCommand updateEntity = new SqlCommand(updateQuery, this.sqlConnection);
+                    AppendParameters(entity, updateEntity.Parameters);
 
                     rowsAffected = updateEntity.ExecuteNonQuery();
                 }
@@ -310,6 +311,28 @@ namespace MiniORM.Core
                 return updateQuery.ToString();
             }
 
+            private string GetUpdateQueryWithParams(object entity, FieldInfo idFieldInfo)
+            {
+                StringBuilder updateQuery = new StringBuilder();
+                updateQuery.Append($"UPDATE {GetTableName(entity.GetType())} SET ");
+
+                FieldInfo[] fields = entity.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                    .Where(f => f.IsDefined(typeof(ColumnAttribute)))
+                    .ToArray();
+
+                foreach (FieldInfo field in fields)
+                {
+                    updateQuery.Append($"{field.Name} = @{field.Name}, ");
+                }
+
+                updateQuery
+                    .Remove(updateQuery.Length - 2, 2)
+                    .Append($" WHERE Id = {idFieldInfo.GetValue(entity)}");
+
+
+                return updateQuery.ToString();
+            }
+
             public bool Insert(object entity)
             {
                 if (entity == null)
@@ -321,8 +344,9 @@ namespace MiniORM.Core
                 using (this.sqlConnection = new SqlConnection(this.connectionString))
                 {
                     this.sqlConnection.Open();
-                    string insertQuery = GetInsertQuery(entity);
+                    string insertQuery = GetInsertQueryWithParams(entity);
                     SqlCommand insertEntity = new SqlCommand(insertQuery, this.sqlConnection);
+                    AppendParameters(entity, insertEntity.Parameters);
 
                     rowsAffected = insertEntity.ExecuteNonQuery();
 
@@ -359,6 +383,44 @@ namespace MiniORM.Core
                     $"INSERT INTO {GetTableName(entity.GetType())} ({columnNames}) VALUES ({columnValues})");
 
                 return insertQuery.ToString().Trim();
+            }
+
+            private string GetInsertQueryWithParams(object entity)
+            {
+                StringBuilder insertQuery = new StringBuilder();
+                StringBuilder columnNames = new StringBuilder();
+                StringBuilder columnValues = new StringBuilder();
+
+                FieldInfo[] fields = entity.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                    .Where(f => f.IsDefined(typeof(ColumnAttribute)))
+                    .ToArray();
+
+                foreach (FieldInfo field in fields)
+                {
+                    string fieldName = field.Name;
+                    columnNames.Append($"{fieldName}, ");
+                    columnValues.Append($"@{fieldName}, ");
+                }
+
+                columnNames.Remove(columnNames.Length - 2, 2);
+                columnValues.Remove(columnValues.Length - 2, 2);
+
+                insertQuery.AppendLine(
+                    $"INSERT INTO {GetTableName(entity.GetType())} ({columnNames}) VALUES ({columnValues})");
+
+                return insertQuery.ToString().Trim();
+            }
+
+            private void AppendParameters(object entity, SqlParameterCollection parameters)
+            {
+                FieldInfo[] fields = entity.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                    .Where(f => f.IsDefined(typeof(ColumnAttribute)))
+                    .ToArray();
+
+                foreach (FieldInfo field in fields)
+                {
+                    parameters.AddWithValue($"@{field.Name}", field.GetValue(entity));
+                }
             }
 
             public void CreateTable(Type type)
@@ -409,8 +471,10 @@ namespace MiniORM.Core
                         return "CHAR";
                     case "DateTime":
                         return "DATETIME";
+                    case "Boolean":
+                        return "BIT";
                     default:
-                        throw new ArgumentException($"Invalid type to conver to: {type.Name} !");
+                        throw new ArgumentException($"Invalid type to convert to: {type.Name} !");
                 }
             }
         }

@@ -52,6 +52,7 @@
     <Compile Include="Core\EntityManager.cs" />
     <Compile Include="DatabaseConnectionStringBuilder.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Book.cs" />
     <Compile Include="Interfaces\IDbContext.cs" />
     <Compile Include="ORMMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
