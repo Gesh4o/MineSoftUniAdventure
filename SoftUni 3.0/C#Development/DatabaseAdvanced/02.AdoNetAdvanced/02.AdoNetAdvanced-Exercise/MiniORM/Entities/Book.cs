@@ -24,6 +24,9 @@
         [Column("IsHardCovered")]
         private bool isHardCovered;
 
+        [Column("Rating")]
+        private decimal rating;
+
         public Book(string title,
             string author,
             DateTime publishedOn,
@@ -35,6 +38,23 @@
             this.PublishedOn = publishedOn;
             this.Language = language;
             this.IsHardCOvered = isHardCovered;
+            this.Rating = 0;
+        }
+
+        public Book(string title,
+           string author,
+           DateTime publishedOn,
+           string language,
+           bool isHardCovered,
+           decimal rating) : this(title, author, publishedOn, language, isHardCovered)
+        {
+            this.Rating = rating;
+        }
+
+        public decimal Rating
+        {
+            get { return rating; }
+            set { rating = value; }
         }
 
         public bool IsHardCOvered

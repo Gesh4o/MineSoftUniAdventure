@@ -13,7 +13,7 @@
     [TestClass]
     public class EntityManagerTests
     {
-        private const bool isCodeFirst = false;
+        private const bool isCodeFirst = true;
         private DatabaseConnectionStringBuilder connectionStringBuilder;
 
         private EntityManager entityManager;

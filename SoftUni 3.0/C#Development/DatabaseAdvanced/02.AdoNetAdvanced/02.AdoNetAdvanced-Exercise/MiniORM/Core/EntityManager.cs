@@ -49,7 +49,7 @@ namespace MiniORM.Core
 
                 if (!reader.HasRows)
                 {
-                    throw new InvalidOperationException("Matches in collection was not found");
+                    return new List<T>();
                 }
 
                 IEnumerable<T> entities = CreateEntities<T>(reader);
@@ -419,7 +419,7 @@ namespace MiniORM.Core
 
                 foreach (FieldInfo field in fields)
                 {
-                    parameters.AddWithValue($"@{field.Name}", field.GetValue(entity));
+                    parameters.AddWithValue($"@{field.Name}", field.GetValue(entity) ?? DBNull.Value);
                 }
             }
 
@@ -453,8 +453,8 @@ namespace MiniORM.Core
                         .AppendLine($"{GetFieldName(column)} {GetSqlType(column.FieldType)}, ");
                 }
 
-                createTableQuery.Remove(createTableQuery.Length - 2, 2)
-                    .AppendLine(")");
+                createTableQuery.Remove(createTableQuery.Length - 2, 2);
+                createTableQuery.AppendLine(")");
 
                 return createTableQuery.ToString();
             }
@@ -465,6 +465,8 @@ namespace MiniORM.Core
                 {
                     case "Int32":
                         return "INT";
+                    case "Double":
+                        return "DECIMAL(10,2)";
                     case "String":
                         return "VARCHAR(MAX)";
                     case "Character":
