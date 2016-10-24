@@ -114,7 +114,7 @@ namespace MiniORM.Core
             return entity;
         }
 
-        public bool Delete<T>(string condition)
+        public int Delete<T>(string condition)
         {
             string query = $"DELETE FROM {GetTableName(typeof(T))} WHERE {condition}";
 
@@ -124,7 +124,7 @@ namespace MiniORM.Core
                 SqlCommand deleteByCondition = new SqlCommand(query, this.sqlConnection);
                 int affectedRows = deleteByCondition.ExecuteNonQuery();
 
-                return affectedRows > 0;
+                return affectedRows;
             }
         }
 

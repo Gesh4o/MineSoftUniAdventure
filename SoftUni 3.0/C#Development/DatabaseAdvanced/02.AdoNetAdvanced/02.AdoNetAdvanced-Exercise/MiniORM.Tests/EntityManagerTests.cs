@@ -130,9 +130,9 @@
         {
             Book book = new Book("Pesho", "Gosho", DateTime.Now, "BG", false);
             this.entityManager.Persist<Book>(book);
-            bool hasDeleted = this.entityManager.Delete<Book>($"Id = {book.Id}");
+            int deletedEntities = this.entityManager.Delete<Book>($"Id = {book.Id}");
 
-            Assert.IsTrue(hasDeleted);
+            Assert.IsTrue(deletedEntities == 1);
         }
     }
 }

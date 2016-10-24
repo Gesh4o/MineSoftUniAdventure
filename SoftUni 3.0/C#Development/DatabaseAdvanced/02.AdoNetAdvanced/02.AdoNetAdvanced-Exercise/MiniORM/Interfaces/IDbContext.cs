@@ -16,6 +16,6 @@
 
         T FindFirst<T>(string condition);
 
-        bool Delete<T>(string condition);
+        int Delete<T>(string condition);
     }
 }
