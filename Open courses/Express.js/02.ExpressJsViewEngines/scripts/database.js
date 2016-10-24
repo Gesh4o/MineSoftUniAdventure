@@ -1,7 +1,13 @@
-const Post = require('./models/post-model')
+const Post = require('./models/post')
 
 module.exports.getLastPosts = (count) => {
-  return []
+  return Post.find().then(models => {
+    let array = models.sort((firstPost, secondPost) => {
+      return secondPost.date - firstPost.date
+    }).slice(0, count)
+
+    return array
+  })
 }
 
 module.exports.savePost = (postObject) => {

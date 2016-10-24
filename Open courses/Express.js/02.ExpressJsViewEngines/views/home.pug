@@ -1,0 +1,30 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml', lang='en', xml:lang='en')
+  head
+    title YOUR SITE.COM
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    link(rel='stylesheet', type='text/css', href='/public/css/style.css', media='screen')
+  body
+    #container
+      #header
+        .headtitle Blog.com
+      #menu
+        ul
+          li
+            a(href='#', title='') HOME
+          li
+            a(href='#', title='') POSTS
+          li
+            a(href='#', title='') LINKS
+      #content
+        #insidecontent
+          br
+          each post in posts
+            h1=post.title
+            p=post.content 
+            p='Author: '+ post.author 
+            p='Date: ' + post.date
+              br
+        div(style='clear: both;')
+      #footer
+        span 2016 

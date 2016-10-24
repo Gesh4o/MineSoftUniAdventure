@@ -4,9 +4,9 @@ const blogsCount = 6
 const database = require('./../database')
 
 router.get('/', (req, res) => {
-  let posts = database.getLastPosts(blogsCount)
-  console.log(posts)
-  res.send('Hello, it\'s me!')
+  database.getLastPosts(blogsCount).then(posts => {
+    res.render('home', {posts})
+  })
 })
 
 module.exports = router

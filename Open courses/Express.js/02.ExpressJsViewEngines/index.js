@@ -16,6 +16,6 @@ app.use('/posts', routers.postRouter)
 // app.post('posts/update/:id', (req, res) => {
 // })
 
-app.all('*', routers.defaultRouter)
-
+// app.all('*', routers.defaultRouter)
+// ToDo: Load css trough stylus.
 app.listen(port)

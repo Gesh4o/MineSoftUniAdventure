@@ -1,4 +1,4 @@
-const Post = require('./../models/post-model')
+const Post = require('./../models/post')
 const database = require('./../database')
 let imageId = 1
 
