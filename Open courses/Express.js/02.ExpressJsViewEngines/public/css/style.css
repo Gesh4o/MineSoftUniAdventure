@@ -16,7 +16,7 @@ body {
   margin: 0 auto;
   width: 640px;
   height: 250px;
-  background: transparent url("./../images/header.jpg") top left no-repeat;
+  background: transparent url("./../../images/header.jpg") top left no-repeat;
 }
 .headtitle {
   position: relative;

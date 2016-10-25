@@ -17,14 +17,10 @@ app.use('/', routers.homeRouter)
 app.use('/posts', routers.postRouter)
 
 app.use(stylus.middleware({
-  src: '/public',
-  dest: path.join(__dirname, '/public/css/'),
-  compile: (str, path) => {
-    console.log(stylus(str))
-    return stylus(str).set('style', path)
-  }}))
-
-
+  src: path.join(__dirname, 'resources/'),
+  dest: path.join(__dirname, 'public/'),
+  compile: (str, path) => stylus(str).set('filename', path)
+}))
 
 // app.post('posts/update/:id', (req, res) => {
 // })

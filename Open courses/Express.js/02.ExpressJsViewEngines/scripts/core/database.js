@@ -1,4 +1,4 @@
-const Post = require('./models/post')
+const Post = require('./../../models/post')
 
 module.exports.getLastPosts = (count) => {
   return Post.find().then(models => {

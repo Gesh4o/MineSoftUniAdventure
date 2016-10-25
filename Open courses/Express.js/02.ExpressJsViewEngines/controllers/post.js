@@ -1,5 +1,5 @@
 const Post = require('./../models/post')
-const database = require('./../database')
+const database = require('./../scripts/core/database')
 let imageId = 1
 
 module.exports.create = (postObject) => {

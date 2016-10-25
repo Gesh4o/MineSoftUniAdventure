@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const blogsCount = 6
-const database = require('./../database')
+const database = require('./../core/database')
 
 router.get('/', (req, res) => {
   database.getLastPosts(blogsCount).then(posts => {
