@@ -1,5 +1,5 @@
 body {
-  font-size: 62.5%;
+  font-size: 100%;
   margin: 0;
   padding: 0;
   background-color: #000;
@@ -27,7 +27,7 @@ body {
   left: 12px;
 }
 #menu {
-  margin: 0 20px;
+  margin: 10px;
   height: 29px;
   padding: 5px 0;
 }
@@ -41,8 +41,7 @@ body {
   display: inline;
 }
 #menu ul li a:hover {
-  background-color: #6a7919;
-  color: #fdfdfd;
+  background-color: #fff;
 }
 #menu ul li a:link,
 #menu ul li a:active,
@@ -62,9 +61,9 @@ body {
 }
 #insidecontent {
   float: left;
-  padding-left: 25px;
-  padding-right: 25px;
-  width: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
 }
 #insidecontent p {
   margin: 0;
@@ -108,4 +107,27 @@ h3 {
   font-size: 1.2em;
   padding: 10px;
   color: #767676;
+}
+.postcontent {
+  font-size: 100%;
+  padding: 3%;
+  border: 2px solid #808080;
+  border-radius: 5px;
+  margin: 5px;
+  width: 94%;
+}
+img {
+  width: 100%;
+}
+postcontent a {
+  text-decoration: none;
+  float: right;
+}
+.createpost {
+  margin: 5px;
+}
+.createpost input,
+.createpost label {
+  margin: 5px;
+  font-size: 1.2em;
 }

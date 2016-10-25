@@ -13,17 +13,21 @@ html(xmlns='http://www.w3.org/1999/xhtml', lang='en', xml:lang='en')
           li
             a(href='/', title='') HOME
           li
+            a(href='/post/all', title='') POSTS
+          li
             a(href='/post/create', title='') CREATE
       #content
         #insidecontent
-          br
-          each post in posts
-            div(class='postcontent')
-                h1=post.title
-                p=post.content 
-                p='Author: '+ post.author 
-                a(href=`/post/details?id=${post.id}`, title='') Details
-                br
+          form(method='POST' class="createpost")
+            label Author: 
+            input(type='text', name='author', placeholder='Author' required)
+            br
+            label Title: 
+            input(type='text', name='title', placeholder='Title' required)
+            br
+            textarea(rows=4, cols=50, name='content', placeholder='Content' required)
+            br
+            input(type='submit', value='Create')
         div(style='clear: both;')
       #footer
         span 2016 

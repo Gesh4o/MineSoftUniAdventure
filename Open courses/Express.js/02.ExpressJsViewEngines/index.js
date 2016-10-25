@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', routers.homeRouter)
 
-app.use('/posts', routers.postRouter)
+app.use('/post', routers.postRouter)
 
 app.use(stylus.middleware({
   src: path.join(__dirname, 'resources/'),

@@ -1,12 +1,27 @@
-<!DOCTYPE html>
-html(lang="en")
-head
-    meta(charset="UTF-8")
-    title Document
-    div.wrapper
-        div.title= post.title
-        div.author= post.author
-        div.date= post.date
-        div.content= post.content
-body
-    
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml', lang='en', xml:lang='en')
+  head
+    title Blog
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    link(rel='stylesheet', type='text/css', href='/css/style.css', media='screen')
+  body
+    #container
+      #header
+        .headtitle Blog.com
+      #menu
+        ul
+          li
+            a(href='/', title='') HOME
+          li
+            a(href='/post/create', title='') CREATE
+      #content
+        #insidecontent
+            div(class='postcontent')
+                img(src="./../../images/header.jpg")
+                h3=post.title
+                p=post.content 
+                p='Author: '+ post.author 
+                p='Date: ' + ("0" + post.date.getDate()).slice(-2) + "-" + ("0"+(post.date.getMonth()+1)).slice(-2) + "-" +  post.date.getFullYear() + " " + ("0" + post.date.getHours()).slice(-2) + ":" + ("0" + post.date.getMinutes()).slice(-2)
+        div(style='clear: both;')
+      #footer
+        span 2016 

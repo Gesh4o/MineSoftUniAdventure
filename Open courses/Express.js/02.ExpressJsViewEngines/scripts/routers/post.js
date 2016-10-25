@@ -1,15 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const postController = require('./../../controllers/post')
-const path = require('path')
 
 router.get('/create', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../views/post/create.html'))
+  res.render('post/create')
 })
 
 router.post('/create', (req, res) => {
   postController.create(req.body).then((id) => {
-    res.redirect(`/posts/details?id=${id.toString()}`)
+    res.redirect(`/post/details?id=${id.toString()}`)
   })
 })
 

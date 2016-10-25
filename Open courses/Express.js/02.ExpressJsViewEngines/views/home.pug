@@ -1,7 +1,7 @@
 doctype html
 html(xmlns='http://www.w3.org/1999/xhtml', lang='en', xml:lang='en')
   head
-    title YOUR SITE.COM
+    title Blog
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     link(rel='stylesheet', type='text/css', href='/css/style.css', media='screen')
   body
@@ -11,11 +11,11 @@ html(xmlns='http://www.w3.org/1999/xhtml', lang='en', xml:lang='en')
       #menu
         ul
           li
-            a(href='#', title='') HOME
+            a(href='/', title='') HOME
           li
-            a(href='#', title='') POSTS
+            a(href='/post/all', title='') POSTS
           li
-            a(href='#', title='') LINKS
+            a(href='/post/create', title='') CREATE
       #content
         #insidecontent
           br
@@ -23,7 +23,7 @@ html(xmlns='http://www.w3.org/1999/xhtml', lang='en', xml:lang='en')
             h1=post.title
             p=post.content 
             p='Author: '+ post.author 
-            p='Date: ' + post.date
+            p='Date: ' + ("0" + post.date.getDate()).slice(-2) + "-" + ("0"+(post.date.getMonth()+1)).slice(-2) + "-" +  post.date.getFullYear() + " " + ("0" + post.date.getHours()).slice(-2) + ":" + ("0" + post.date.getMinutes()).slice(-2)
               br
         div(style='clear: both;')
       #footer
