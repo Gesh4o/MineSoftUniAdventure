@@ -18,7 +18,7 @@ html(xmlns='http://www.w3.org/1999/xhtml', lang='en', xml:lang='en')
             a(href='/post/create', title='') CREATE
       #content
         #insidecontent
-          form(method='POST' class="createpost")
+          form(method='POST' class="createpost" enctype="multipart/form-data")
             label Author: 
             input(type='text', name='author', placeholder='Author' required)
             br
@@ -28,6 +28,8 @@ html(xmlns='http://www.w3.org/1999/xhtml', lang='en', xml:lang='en')
             textarea(rows=4, cols=50, name='content', placeholder='Content' required)
             br
             input(type='submit', value='Create')
+            br
+            input(type='file', value='Upload picture' name="photo")
         div(style='clear: both;')
       #footer
         span 2016 

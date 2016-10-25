@@ -17,7 +17,7 @@ html(xmlns='http://www.w3.org/1999/xhtml', lang='en', xml:lang='en')
       #content
         #insidecontent
             div(class='postcontent')
-                img(src="./../../images/header.jpg")
+                img(src=`./../../${post.filepath}` alt=`${post.title}'s picture`)
                 h3=post.title
                 p=post.content 
                 p='Author: '+ post.author 

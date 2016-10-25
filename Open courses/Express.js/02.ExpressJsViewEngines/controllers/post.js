@@ -1,17 +1,15 @@
 const Post = require('./../models/post')
 const database = require('./../scripts/core/database')
-let imageId = 1
 
 module.exports.create = (postObject) => {
   let post = new Post({
-    imageId: imageId,
     author: postObject.author,
     title: postObject.title,
+    filepath: postObject.filepath,
     content: postObject.content,
     date: Date.now()
   })
 
-  imageId += 1
   return database.savePost(post).then((postId) => {
     return postId
   })

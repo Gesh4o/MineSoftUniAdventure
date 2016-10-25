@@ -11,6 +11,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(bodyParser.urlencoded({'extended': true}))
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'uploads')))
 
 app.use('/', routers.homeRouter)
 
@@ -26,5 +27,4 @@ app.use(stylus.middleware({
 // })
 
 // app.all('*', routers.defaultRouter)
-// ToDo: Load css trough stylus.
 app.listen(port)

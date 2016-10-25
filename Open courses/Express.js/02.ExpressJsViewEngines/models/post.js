@@ -5,9 +5,9 @@ mongoose.Promise = global.Promise
 mongoose.connect(connectionString)
 
 let postSchema = mongoose.Schema({
-  imageId: Number,
   title: String,
   author: String,
+  filepath: String,
   content: String,
   date: Date
 })

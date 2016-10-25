@@ -9,7 +9,10 @@
   "dependencies": {
     "body-parser": "1.15.2",
     "express": "4.14.0",
+    "install": "0.8.2",
     "mongoose": "4.6.4",
+    "multer": "1.2.0",
+    "npm": "3.10.9",
     "pug": "2.0.0-beta6",
     "standart": "6.0.0",
     "stylus": "0.54.5"
