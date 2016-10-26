@@ -4,8 +4,14 @@ const connectionString = 'mongodb://localhost:27017/articles-and-posts'
 
 mongoose.Promise = global.Promise
 const app = express()
-const port = 1234
 
+const port = process.env.port || 1234
+const environment = process.env.NODE_ENV || 'develop'
+
+app.set('view engine', 'pug')
+app.set('views', 'views')
+
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   console.log('Exress ready!')
@@ -13,7 +19,7 @@ app.get('/', (req, res) => {
     console.log('MongoDB ready!')
   })
 
-  res.send('Hello')
+  res.render('index')
 })
 
 app.listen(port)
