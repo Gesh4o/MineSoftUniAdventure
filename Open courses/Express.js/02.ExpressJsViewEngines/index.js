@@ -26,5 +26,5 @@ app.use(stylus.middleware({
 // app.post('posts/update/:id', (req, res) => {
 // })
 
-// app.all('*', routers.defaultRouter)
+app.all('*', routers.defaultRouter)
 app.listen(port)
