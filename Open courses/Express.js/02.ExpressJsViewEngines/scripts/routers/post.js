@@ -14,7 +14,7 @@ router.post('/create', upload.single('photo'), (req, res) => {
   let postObject = req.body
 
   if (req.file) {
-    let filepath = req.file.path.substring(req.file.path.indexOf('\\') + 1, req.file.path.lenght) 
+    let filepath = req.file.path.substring(req.file.path.indexOf('\\') + 1, req.file.path.lenght)
     postObject.filepath = filepath
   } else {
     postObject.filepath = ''
