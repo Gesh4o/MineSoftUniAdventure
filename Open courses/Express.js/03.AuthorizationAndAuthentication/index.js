@@ -6,5 +6,6 @@ const app = express()
 require('./server/database')(config[environment])
 require('./server/config/express')(app, config[environment])
 require('./server/config/routes')(app)
+require('./server/config/passport')()
 
 app.listen(config[environment].port)
