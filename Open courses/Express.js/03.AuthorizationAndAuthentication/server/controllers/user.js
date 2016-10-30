@@ -1,4 +1,4 @@
-const encryption = './utilities/encryption'
+const encryption = require('./../../utilities/encryption')
 const User = require('mongoose').model('User')
 
 module.exports = {
@@ -9,8 +9,7 @@ module.exports = {
   registerPost: (req, res) => {
     let user = req.body
     user.salt = encryption.generateSalt()
-    user.hashedPass = encryption.generateHashedPassword(user.salt,
-    user.passwd)
+    user.passwordHash = encryption.generateHashedPassword(user.salt, user.password)
     User.create(user).then(user => {
       req
      .logIn(user, (err, user) => {
@@ -29,8 +28,8 @@ module.exports = {
   },
 
   loginPost: (req, res) => {
-    let user = req.body
-    User.findOne({username: user.username}).then((user) => {
+    let reqBody = req.body
+    User.findOne({username: reqBody.username}).then((user) => {
       if (!user) {
         res.render('user/login', { globalError: 'Invalid username or password' })
         return
@@ -38,7 +37,7 @@ module.exports = {
 
       let userSalt = user.salt
       let passwordHash = user.passwordHash
-      let reqPasswordHash = encryption.generateHashedPassword(userSalt, user.password)
+      let reqPasswordHash = encryption.generateHashedPassword(userSalt, reqBody.password)
 
       if (reqPasswordHash !== passwordHash) {
         res.render('user/login', { globalError: 'Invalid username or password' })
@@ -48,8 +47,9 @@ module.exports = {
       req.logIn(user, (err, user) => {
         if (err) {
           console.log(err)
-          res.redirect('/')
         }
+
+        res.redirect('/')
       })
     })
   },
