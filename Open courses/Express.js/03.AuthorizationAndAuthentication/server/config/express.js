@@ -8,9 +8,11 @@ const passport = require('passport')
 module.exports = (app, config) => {
   app.use(cookieParser())
   app.use(bodyParser.urlencoded({extended: true}))
+
   app.use(session({secret: 's3cr3tk3y', resave: true, saveUninitialized: true}))
   app.use(passport.initialize())
   app.use(passport.session())
+
   app.set('view engine', 'pug')
   app.set('views', path.join(config.rootPath, 'server/views'))
   app.use((req, res, next) => {

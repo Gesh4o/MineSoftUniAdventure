@@ -1,0 +1,13 @@
+extends ../shared/layout
+block main-content
+  h1 Create new article
+  form(method="post" action="/article/add")
+    label(for="title") Title
+    br
+    input(type="text" name="title" id="title")
+    br
+    label(for="description") Description
+    br
+    textarea(rows="10" cols="50" name="description" id="description")
+    br
+    input(type="submit" value="Create")

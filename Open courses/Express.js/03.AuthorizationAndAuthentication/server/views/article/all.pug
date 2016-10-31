@@ -1,0 +1,7 @@
+extends ../shared/layout
+
+block main-content
+
+  each article in articles
+    h1=article.title
+    p=article.description

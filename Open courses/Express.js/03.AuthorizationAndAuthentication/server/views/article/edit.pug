@@ -1,0 +1,14 @@
+extends ../shared/layout
+
+block main-content
+  h1 Edit article
+  form(method="post" action=`"/article/edit?id=${article._id}"`)
+    label(for="title") Title
+    br
+    input(type="text" name="title" id="title" value=article.title)
+    br
+    label(for="description") Description
+    br
+    textarea(rows="10" cols="50" name="description" id="description")=article.description
+    br
+    input(type="submit" value="Edit")
