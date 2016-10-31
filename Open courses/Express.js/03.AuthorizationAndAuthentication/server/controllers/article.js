@@ -26,18 +26,22 @@ module.exports = {
   },
 
   editGet: (req, res) => {
-    let id = req.params.id
-    Article.findOne({_id: id}).then(article => {
-      res.render('article/edit', {article: article})
+    auth.isInRole('Admin')(req, res, () => {
+      let id = req.params.id
+      Article.findOne({_id: id}).then(article => {
+        res.render('article/edit', {article: article})
+      })
     })
   },
 
   editPost: (req, res) => {
-    let id = req.params.id
-    let reqBody = req.body
+    auth.isInRole('Admin')(req, res, () => {
+      let id = req.params.id
+      let reqBody = req.body
 
-    Article.update({_id: id}, {title: reqBody.title, description: reqBody.description}).then(article => {
-      res.redirect(`/article/details/${id}`)
+      Article.update({_id: id}, {title: reqBody.title, description: reqBody.description}).then(article => {
+        res.redirect(`/article/details/${id}`)
+      })
     })
   },
 
