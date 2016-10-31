@@ -34,9 +34,9 @@ module.exports = {
     let id = req.params.id
     let reqBody = req.body
 
-    Article.update({id: id}, {title: reqBody.title, description: reqBody.description}).then()
-
-    res.redirect(`/article/details/${id}`)
+    Article.update({_id: id}, {title: reqBody.title, description: reqBody.description}).then(article => {
+      res.redirect(`/article/details/${id}`)
+    })
   },
 
   all: (req, res) => {

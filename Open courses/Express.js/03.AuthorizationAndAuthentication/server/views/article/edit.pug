@@ -2,7 +2,7 @@ extends ../shared/layout
 
 block main-content
   h1 Edit article
-  form(method="post" action=`"/article/edit?id=${article._id}"`)
+  form(method="post" action=`/article/edit/${article._id}`)
     label(for="title") Title
     br
     input(type="text" name="title" id="title" value=article.title)
