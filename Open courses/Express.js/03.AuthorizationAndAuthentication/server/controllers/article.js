@@ -3,16 +3,18 @@ const Article = require('mongoose').model('Article')
 
 module.exports = {
   addGet: (req, res) => {
-    auth.isAuthenticated(req, res, (req, res) => {
+    auth.isAuthenticated(req, res, () => {
       res.render('article/add')
     })
   },
 
   addPost: (req, res) => {
-    let reqBody = req.body
-    reqBody.author = res.locals.currentUser.username
-    Article.create(reqBody).then(article => {
-      res.redirect(`/article/details/${article._id}`)
+    auth.isAuthenticated(req, res, () => {
+      let reqBody = req.body
+      reqBody.author = res.locals.currentUser.username
+      Article.create(reqBody).then(article => {
+        res.redirect(`/article/details/${article._id}`)
+      })
     })
   },
 
