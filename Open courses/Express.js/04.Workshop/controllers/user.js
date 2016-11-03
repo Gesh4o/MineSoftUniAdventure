@@ -1,13 +1,13 @@
 const User = require('mongoose').model('User')
-const encryption = require('./utilities/encryption')
+const encryption = require('./../utilities/encryption')
 module.exports = {
-  loginGet: (req, res) => {
-    res.render('user/login')
+  registerGet: (req, res) => {
+    res.render('user/register')
   },
 
-  loginPost: (req, res) => {
+  registerPost: (req, res) => {
     let params = req.body
-    params.salt = encryption.generateSalt()
+
     User.find({username: params.username}).then(users => {
       let error = ''
       if (users.length > 0) {
@@ -17,16 +17,40 @@ module.exports = {
       }
 
       if (error) {
-        res.redirect('user/login', {error: error, params})
-        return
+        res.redirect('/user/register', {error: error, params})
+        res.end()
       }
 
-      User.create(params).then(user => {
+      let salt = encryption.generateSalt()
+      let currentUser = {
+        username: params.username,
+        passwordHash: encryption.getPasswordHash(salt, params.password),
+        salt: salt
+      }
+
+      User.create(currentUser).then(user => {
         // If db throws error upon creating?
-        req.logIn(user)
-        res.locals.user = user
-        res.redirect('/', {user: user})
+        req.logIn(user, (err, user) => {
+          if (err) {
+            // ToDo: You can either send it as a message or simply ignore it.
+          }
+
+          res.redirect('/', {user: user})
+        })
       })
     })
+  },
+
+  loginGet: (req, res) => {
+    res.render('/user/login')
+  },
+
+  loginPost: (req, res) => {
+
+  },
+
+  logout: (req, res) => {
+    req.logout()
+    res.redirect('/')
   }
 }
