@@ -22,5 +22,6 @@ namespace _02.CreateUser
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Town> Towns { get; set; }
     }
 }

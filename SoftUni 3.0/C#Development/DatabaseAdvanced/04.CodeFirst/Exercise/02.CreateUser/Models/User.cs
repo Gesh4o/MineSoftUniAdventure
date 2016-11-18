@@ -15,12 +15,27 @@
         public string Username { get; set; }
 
         [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [NotMapped]
+        public string FullName {
+            get
+            {
+                return this.FirstName + " " + this.LastName;
+            }
+        }
+
+        [Required]
         [MinLength(6)]
         [MaxLength(50)]
-        [PasswordValidation]
+        [PasswordValidation(3,10)]
         public string Password { get; set; }
 
         [Required]
+        // Task 09.
         [RegularExpression(@"^(?:[a-zA-Z0-9](?:\.|\-|_)?)+[a-zA-Z0-9]+@\w+.\w+$")]
         public string Email { get; set; }
 
@@ -35,5 +50,9 @@
         public int Age { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public Town BornTown { get; set; }
+
+        public Town LivingTown { get; set; }
     }
 }

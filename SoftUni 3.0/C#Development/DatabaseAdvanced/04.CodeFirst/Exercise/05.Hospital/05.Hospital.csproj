@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2A42CAC4-DE7C-4CC7-80A9-7489767ABCFD}</ProjectGuid>
+    <ProjectGuid>{673E62A5-D3D0-4042-ABBA-1C41BE665A78}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_02.CreateUser</RootNamespace>
-    <AssemblyName>02.CreateUser</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>_05.Hospital</RootNamespace>
+    <AssemblyName>05.Hospital</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -54,32 +54,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppDbContext.cs" />
-    <Compile Include="Attributes\PasswordValidationAttribute.cs" />
-    <Compile Include="CreateUserMain.cs" />
-    <Compile Include="Migrations\201611051137532_InitialCreate.cs" />
-    <Compile Include="Migrations\201611051137532_InitialCreate.Designer.cs">
-      <DependentUpon>201611051137532_InitialCreate.cs</DependentUpon>
+    <Compile Include="HospitalDbContext.cs" />
+    <Compile Include="Migrations\201611181407114_InitialCreate.cs" />
+    <Compile Include="Migrations\201611181407114_InitialCreate.Designer.cs">
+      <DependentUpon>201611181407114_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611051152255_DateTimeUpdate.cs" />
-    <Compile Include="Migrations\201611051152255_DateTimeUpdate.Designer.cs">
-      <DependentUpon>201611051152255_DateTimeUpdate.cs</DependentUpon>
+    <Compile Include="Migrations\201611181409596_DataTimeNullable.cs" />
+    <Compile Include="Migrations\201611181409596_DataTimeNullable.Designer.cs">
+      <DependentUpon>201611181409596_DataTimeNullable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611181517426_AddTownsProperties.cs" />
-    <Compile Include="Migrations\201611181517426_AddTownsProperties.Designer.cs">
-      <DependentUpon>201611181517426_AddTownsProperties.cs</DependentUpon>
+    <Compile Include="Migrations\201611181542545_DoctorEntityAdditionRemovedRequire.cs" />
+    <Compile Include="Migrations\201611181542545_DoctorEntityAdditionRemovedRequire.Designer.cs">
+      <DependentUpon>201611181542545_DoctorEntityAdditionRemovedRequire.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611181524354_AddInverseProperties.cs" />
-    <Compile Include="Migrations\201611181524354_AddInverseProperties.Designer.cs">
-      <DependentUpon>201611181524354_AddInverseProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611181529407_AddNamesProperties.cs" />
-    <Compile Include="Migrations\201611181529407_AddNamesProperties.Designer.cs">
-      <DependentUpon>201611181529407_AddNamesProperties.cs</DependentUpon>
+    <Compile Include="Migrations\201611181546391_DoctorEntityAdditionWithRequired.cs" />
+    <Compile Include="Migrations\201611181546391_DoctorEntityAdditionWithRequired.Designer.cs">
+      <DependentUpon>201611181546391_DoctorEntityAdditionWithRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Town.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Diagnose.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Medicament.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Visitation.cs" />
+    <Compile Include="HospitalMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,20 +85,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611051137532_InitialCreate.resx">
-      <DependentUpon>201611051137532_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611181407114_InitialCreate.resx">
+      <DependentUpon>201611181407114_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611051152255_DateTimeUpdate.resx">
-      <DependentUpon>201611051152255_DateTimeUpdate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611181409596_DataTimeNullable.resx">
+      <DependentUpon>201611181409596_DataTimeNullable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611181517426_AddTownsProperties.resx">
-      <DependentUpon>201611181517426_AddTownsProperties.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611181542545_DoctorEntityAdditionRemovedRequire.resx">
+      <DependentUpon>201611181542545_DoctorEntityAdditionRemovedRequire.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611181524354_AddInverseProperties.resx">
-      <DependentUpon>201611181524354_AddInverseProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611181529407_AddNamesProperties.resx">
-      <DependentUpon>201611181529407_AddNamesProperties.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611181546391_DoctorEntityAdditionWithRequired.resx">
+      <DependentUpon>201611181546391_DoctorEntityAdditionWithRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
