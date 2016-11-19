@@ -18,6 +18,12 @@ namespace _02.CreateUser
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasMany(u => u.Friends).WithMany();
+            base.OnModelCreating(modelBuilder);
+        }
+
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 

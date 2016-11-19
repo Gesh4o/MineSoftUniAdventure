@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2A42CAC4-DE7C-4CC7-80A9-7489767ABCFD}</ProjectGuid>
+    <ProjectGuid>{D23C7E9F-6334-4997-BD8E-BB59FC62B5CE}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_02.CreateUser</RootNamespace>
-    <AssemblyName>02.CreateUser</AssemblyName>
+    <RootNamespace>MassDefect.Export.XML</RootNamespace>
+    <AssemblyName>MassDefect.Export.XML</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,8 +45,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,36 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppDbContext.cs" />
-    <Compile Include="Attributes\PasswordValidationAttribute.cs" />
-    <Compile Include="CreateUserMain.cs" />
-    <Compile Include="Migrations\201611051137532_InitialCreate.cs" />
-    <Compile Include="Migrations\201611051137532_InitialCreate.Designer.cs">
-      <DependentUpon>201611051137532_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611051152255_DateTimeUpdate.cs" />
-    <Compile Include="Migrations\201611051152255_DateTimeUpdate.Designer.cs">
-      <DependentUpon>201611051152255_DateTimeUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611181517426_AddTownsProperties.cs" />
-    <Compile Include="Migrations\201611181517426_AddTownsProperties.Designer.cs">
-      <DependentUpon>201611181517426_AddTownsProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611181524354_AddInverseProperties.cs" />
-    <Compile Include="Migrations\201611181524354_AddInverseProperties.Designer.cs">
-      <DependentUpon>201611181524354_AddInverseProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611181529407_AddNamesProperties.cs" />
-    <Compile Include="Migrations\201611181529407_AddNamesProperties.Designer.cs">
-      <DependentUpon>201611181529407_AddNamesProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611181915292_AddingFriends.cs" />
-    <Compile Include="Migrations\201611181915292_AddingFriends.Designer.cs">
-      <DependentUpon>201611181915292_AddingFriends.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Town.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="ExportXMLMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,24 +61,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611051137532_InitialCreate.resx">
-      <DependentUpon>201611051137532_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611051152255_DateTimeUpdate.resx">
-      <DependentUpon>201611051152255_DateTimeUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611181517426_AddTownsProperties.resx">
-      <DependentUpon>201611181517426_AddTownsProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611181524354_AddInverseProperties.resx">
-      <DependentUpon>201611181524354_AddInverseProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611181529407_AddNamesProperties.resx">
-      <DependentUpon>201611181529407_AddNamesProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611181915292_AddingFriends.resx">
-      <DependentUpon>201611181915292_AddingFriends.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\MassDefect.Models\MassDefect.Models.csproj">
+      <Project>{0fe4b21f-ae99-492a-aff2-4345005a0afc}</Project>
+      <Name>MassDefect.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="exports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

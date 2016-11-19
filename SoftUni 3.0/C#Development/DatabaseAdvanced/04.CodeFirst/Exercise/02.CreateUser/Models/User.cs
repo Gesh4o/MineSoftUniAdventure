@@ -2,6 +2,7 @@
 {
     using Attributes;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -54,5 +55,7 @@
         public Town BornTown { get; set; }
 
         public Town LivingTown { get; set; }
+
+        public ICollection<User> Friends { get; set; }
     }
 }
