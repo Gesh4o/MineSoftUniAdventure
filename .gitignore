@@ -314,3 +314,4 @@ fabric.properties
 !.vscode/tasks.json
 !.vscode/launch.json
 typings/
+scripts/
