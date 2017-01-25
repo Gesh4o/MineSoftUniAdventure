@@ -24,7 +24,7 @@
         }
 
         // Max extension
-        public static TSelector Max<TSource,TSelector>(this IEnumerable<TSource> collection ,Func<TSource,TSelector> getElement)
+        public static TSelector Max<TSource,TSelector>(this IEnumerable<TSource> collection, Func<TSource,TSelector> getElement)
             where TSelector: IComparable
         {
             List<TSelector> allElements = new List<TSelector>();
@@ -37,7 +37,7 @@
             TSelector maxValue = allElements[0];
             for (int i = 1; i < allElements.Count; i++)
             {
-                if (maxValue.CompareTo(allElements[i])<0)
+                if (maxValue.CompareTo(allElements[i]) < 0)
                 {
                     maxValue = allElements[i];
                 }

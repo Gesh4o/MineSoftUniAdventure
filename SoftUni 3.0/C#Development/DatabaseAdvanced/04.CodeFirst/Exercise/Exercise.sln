@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.SalesDatabase", "04.Sale
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.Hospital", "05.Hospital\05.Hospital.csproj", "{673E62A5-D3D0-4042-ABBA-1C41BE665A78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kappa", "Kappa\Kappa.csproj", "{FD29CD0B-75A1-4CB6-B2C0-E6E6FDA94CC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{673E62A5-D3D0-4042-ABBA-1C41BE665A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{673E62A5-D3D0-4042-ABBA-1C41BE665A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{673E62A5-D3D0-4042-ABBA-1C41BE665A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD29CD0B-75A1-4CB6-B2C0-E6E6FDA94CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD29CD0B-75A1-4CB6-B2C0-E6E6FDA94CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD29CD0B-75A1-4CB6-B2C0-E6E6FDA94CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD29CD0B-75A1-4CB6-B2C0-E6E6FDA94CC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

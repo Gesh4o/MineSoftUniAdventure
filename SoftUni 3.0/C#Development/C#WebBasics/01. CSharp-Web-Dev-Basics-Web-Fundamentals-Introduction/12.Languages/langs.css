@@ -1,0 +1,12 @@
+body {
+  background:#EEE;
+  line-height:1.5em;
+  font-size:24pt
+}
+
+span {
+  border:1px #AAA;
+  border-radius: 2px;
+  background:#CCC; 
+  padding: 2px
+}

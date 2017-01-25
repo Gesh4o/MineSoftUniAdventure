@@ -17,9 +17,6 @@
             Student Gosho = new Student("Gosho", 3);
             List<Student> stList = new List<Student>() { Pesho, Gosho };
             Console.WriteLine(stList.Max(st => st.Grade));
-
-
-
         }
     }
 }
