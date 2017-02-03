@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles/login.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <form action="register.exe" class="form-horizontal" method="POST">
+
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-5">
+            <input class="form-control" type="text" name="email" placeholder="Enter an email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-5">
+            <input class="form-control" type="password" name="password" placeholder="Enter a password">
+          </div>
+        </div>
+
+        <div class="checkbox col-sm-offset-4 col-sm-4">
+          <label for="">
+            <input type="checkbox" name="rememberMe" value="y"><span>Remember Me</span>
+            </label>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-5 col-sm-4">
+            <a class="btn btn-danger" href="home.exe">Go Back</a>
+            <input class="btn btn-success" type="submit" value="Sign Up">
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="bootstrap/jquery-3.1.1.min.js"></script>
+  <script src="bootstrap/bootstrap.min.js"></script>
+</body>
+
+</html>
