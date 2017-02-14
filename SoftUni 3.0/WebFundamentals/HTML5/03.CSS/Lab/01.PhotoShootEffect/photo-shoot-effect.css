@@ -1,0 +1,155 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*Reset CSS*/
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #fcfcfc;
+  background-color: #355664;
+}
+
+h1, h2, h3, h4 {
+  font-family: forte, Arial, sans-serif;
+}
+
+h1 {
+   font-size: 50px;
+   padding: 10px 0 0;
+   text-align: center;
+     text-transform: uppercase;
+}
+
+h2 {
+  font-size: 40px;
+  letter-spacing: 15px;
+  text-align: center;
+  border-bottom: 3px solid#416371;
+  padding-bottom: 20 px;
+  text-transform: uppercase;
+}
+
+h3 {
+  text-align: right;
+  font-size: 30px;
+  font-weight: normal;
+  margin: 0 0 10px;
+}
+
+p {
+  line-height: 20px;
+  padding-bottom: 5px;
+  color: #94c258;
+}
+
+img {
+  width: 500px;
+  height: 300px;
+  border: none;
+}
+
+div.article-content {
+  margin: 15px 0;
+}
+
+nav {
+background: #355664;
+padding: 0 5px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav li > a {
+  color: #7CB3E9;
+  text-transform: lowercase;
+}
+
+nav li:nth-of-type(2) > a {
+    color: #8EC45B;
+    text-transform: none;
+}
+
+
+nav li:nth-of-type(3) > a {
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+a {
+  margin: 5px 2px;
+  padding: 7px 10px 4px;
+  font-size: 30px;
+}
+
+article {
+  height: 390px;
+  background-color: #213E4A;
+  padding: 20px;
+  margin: 0 0 10px;
+}
+
+figure {
+  border: 3px solid #142830;
+  float: right;
+  height: 300px;
+  width: 500px;
+  margin-left: 15px;
+}
+
+footer {
+  border-top: 3px solid #142830;
+  padding-top: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 20px;
+}
