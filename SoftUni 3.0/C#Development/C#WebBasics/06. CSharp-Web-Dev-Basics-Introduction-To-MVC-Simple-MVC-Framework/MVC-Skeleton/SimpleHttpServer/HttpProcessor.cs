@@ -1,16 +1,17 @@
-﻿using SimpleHttpServer.Enums;
-using SimpleHttpServer.Models;
-using SimpleHttpServer.Utilities;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace SimpleHttpServer
+﻿namespace SimpleHttpServer
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Net.Sockets;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
+    using Enums;
+    using Models;
+    using Utilities;
+    
     public class HttpProcessor
     {
         private IList<Route> Routes;
@@ -44,7 +45,7 @@ namespace SimpleHttpServer
             string[] tokens = requestLine.Split(' ');
             if (tokens.Length != 3)
             {
-                throw new Exception("invalid http request line");
+                throw new Exception("Invalid http request line!");
             }
             RequestMethod method = (RequestMethod)Enum.Parse(typeof(RequestMethod), tokens[0].ToUpper());
             string url = tokens[1];
@@ -93,8 +94,6 @@ namespace SimpleHttpServer
                 }
             }
 
-
-
             string content = null;
             if (header.ContentLength != null)
             {
@@ -113,9 +112,6 @@ namespace SimpleHttpServer
 
                 content = Encoding.ASCII.GetString(bytes);
             }
-
-
-
 
             var request = new HttpRequest()
             {
@@ -156,6 +152,12 @@ namespace SimpleHttpServer
             {
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
+
+                if (ex.Message != ex.GetBaseException().Message)
+                {
+                    Console.WriteLine(ex.GetBaseException());
+                    Console.WriteLine(ex.GetBaseException().StackTrace);
+                }
                 return HttpResponseBuilder.InternalServerError();
             }
 

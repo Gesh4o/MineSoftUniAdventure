@@ -1,7 +1,7 @@
 ﻿namespace SimpleMVC.App.MVC
 {
-    using System;
     using SimpleHttpServer;
+    using System;
     using System.Reflection;
 
     public static class MvcEngine

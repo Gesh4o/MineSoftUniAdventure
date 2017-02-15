@@ -23,8 +23,6 @@
                 controllerName,
                 callee);
 
-            // return (IActionResult)Activator.CreateInstance(typeof(ActionResult), new object[] { viewName });
-
             return new ActionResult(viewName);
         }
 
@@ -39,7 +37,7 @@
             return new ActionResult(viewName);
         }
 
-        protected IActionResult<T> View<T>(T model,[CallerMemberName]string callee = "" )
+        protected IActionResult<T> View<T>(T model, [CallerMemberName]string callee = "")
         {
             string controllerName = this.GetType()
                 .Name
@@ -52,7 +50,6 @@
                 MvcContext.Instance.ViewsFolder,
                 controllerName,
                 callee);
-
 
             return new ActionResult<T>(viewName, model);
         }

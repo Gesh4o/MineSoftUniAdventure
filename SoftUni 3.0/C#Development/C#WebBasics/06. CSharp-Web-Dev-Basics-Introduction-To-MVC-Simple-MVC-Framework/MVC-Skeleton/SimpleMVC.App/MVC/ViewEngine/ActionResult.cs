@@ -1,8 +1,7 @@
 ﻿namespace SimpleMVC.App.MVC.ViewEngine
 {
-    using System;
-
     using Interfaces;
+    using System;
 
     public class ActionResult : IActionResult
     {
@@ -17,8 +16,9 @@
         {
             this.Action = (IRenderable)Activator.CreateInstance(Type.GetType(view));
         }
+
         public IRenderable Action { get; set; }
-     
+
         public string Invoke()
         {
             return this.Action.Render();

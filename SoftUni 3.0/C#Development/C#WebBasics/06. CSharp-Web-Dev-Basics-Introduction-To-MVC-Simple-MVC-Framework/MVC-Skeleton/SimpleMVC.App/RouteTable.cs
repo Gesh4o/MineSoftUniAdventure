@@ -1,9 +1,10 @@
 ﻿namespace SimpleMVC.App
 {
+    using System.Collections.Generic;
+
     using MVC.Routers;
     using SimpleHttpServer.Enums;
     using SimpleHttpServer.Models;
-    using System.Collections.Generic;
 
     public static class RouteTable
     {

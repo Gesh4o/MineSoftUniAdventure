@@ -1,10 +1,9 @@
 ﻿namespace SimpleMVC.App.MVC.ViewEngine.Generic
 {
+    using Interfaces.Generic;
     using System;
 
-    using Interfaces.Generic;
-
-    public class ActionResult<T>: IActionResult<T>
+    public class ActionResult<T> : IActionResult<T>
     {
         public ActionResult(string view, T model)
         {
@@ -18,6 +17,5 @@
         {
             return this.Action.Render();
         }
-
     }
 }

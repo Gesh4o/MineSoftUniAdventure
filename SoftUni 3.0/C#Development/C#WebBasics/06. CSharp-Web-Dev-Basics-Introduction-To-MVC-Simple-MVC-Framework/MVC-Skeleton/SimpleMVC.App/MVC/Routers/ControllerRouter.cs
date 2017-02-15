@@ -1,17 +1,14 @@
-﻿
-namespace SimpleMVC.App.MVC.Routers
+﻿namespace SimpleMVC.App.MVC.Routers
 {
+    using Attributes.Methods;
+    using Controllers;
+    using Interfaces;
+    using SimpleHttpServer.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
-
-    using SimpleHttpServer.Models;
-
-    using Interfaces;
     using System.Reflection;
-    using Controllers;
-    using Attributes.Methods;
 
     public class ControllerRouter : IHandleable
     {
@@ -91,12 +88,17 @@ namespace SimpleMVC.App.MVC.Routers
             {
                 bindingModelProperty.SetValue(bindingModel,
                     Convert.ChangeType(
-                        this.postParams[bindingModelProperty.Name],
+                        this.postParams[this.ToCamelCase(bindingModelProperty.Name)],
                         bindingModelProperty.PropertyType));
             }
 
             this.methodParams[index] = Convert.ChangeType
                 (bindingModel, bindingModel.GetType());
+        }
+
+        private string ToCamelCase(string text)
+        {
+            return text[0].ToString().ToLower() + text.Substring(1);
         }
 
         private void SetPrimitiveParameterValue(int index, ParameterInfo param)
