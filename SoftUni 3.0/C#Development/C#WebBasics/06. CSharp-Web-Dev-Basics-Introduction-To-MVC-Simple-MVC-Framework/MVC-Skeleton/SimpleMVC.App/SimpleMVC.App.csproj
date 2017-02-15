@@ -98,6 +98,10 @@
       <Project>{9E139539-C272-488A-BFCF-CADDF458DF9D}</Project>
       <Name>SimpleHttpServer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebUtils\WebUtils.csproj">
+      <Project>{1D01E325-912E-42DD-A966-3D7A40FD68FA}</Project>
+      <Name>WebUtils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
