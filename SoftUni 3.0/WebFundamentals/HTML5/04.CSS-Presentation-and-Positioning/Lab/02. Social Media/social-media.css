@@ -1,0 +1,63 @@
+body {
+  background: rgb(41, 41, 41);
+}
+
+section {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+li {
+  font-size: 1.2rem;
+  list-style-type: none;
+  color: #bab194;
+}
+
+ul {
+  padding: 0;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.twitter {
+  background-position: 772px 126px;
+}
+
+.linkedIn {
+  background-position: 642px 126px;
+}
+
+.youtube {
+  background-position: 325px 126px;
+}
+
+.facebook, .twitter, .youtube, .linkedIn {
+  cursor: pointer;
+}
+
+.facebook:hover {
+  background-position: 0 60px;
+}
+
+.linkedIn:hover {
+  background-position: 642px 63px;
+}
+
+.youtube:hover {
+  background-position: 325px 63px;
+}
+
+.twitter:hover {
+  background-position: -66px 63px;
+}
+
+footer > section > div div {
+  width: 70px;
+  height: 58px;
+  background: url("images/social.jpg");
+  display: inline-block;
+}

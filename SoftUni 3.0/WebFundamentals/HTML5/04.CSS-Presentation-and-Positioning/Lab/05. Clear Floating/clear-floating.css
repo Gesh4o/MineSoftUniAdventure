@@ -1,0 +1,41 @@
+header, footer {
+  background-color: #8b603d;
+  padding: 20px 5px;
+  border: 1px solid black;
+}
+
+header, footer, .menu {
+  color: #FFFFFF;
+}
+
+header > h2 {
+  margin: 0;
+}
+
+aside.menu {
+  margin: 0px 15px;
+  float: left;
+  width: 25%;
+}
+
+aside ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+aside ul li {
+  padding: 10px;
+  background-color: #33b5e6;
+  margin-bottom: 5px;
+  list-style-type: none;
+}
+
+main::after {
+  content: "";
+  display: block;
+  clear: both; height: 0;
+}
+
+footer {
+  margin-top: 10px;
+}

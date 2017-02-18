@@ -1,0 +1,28 @@
+ p {
+   text-align: justify;
+ }
+ 
+ .left {
+   float: left;
+   margin-right: 10px;
+ }
+ 
+ .right {
+   margin: 10px;
+   float: right;
+ }
+ 
+ .left, .right, .center {
+      background-color: #6395ec;
+   text-align: center;
+   width: 120px;
+   text-align: center;
+   padding: 10px;
+   border-radius: 5px;
+   text-shadow: 0px 0px 5px white;
+ }
+ 
+ .center {
+   text-align: center;
+   margin: 0 auto;
+ }
