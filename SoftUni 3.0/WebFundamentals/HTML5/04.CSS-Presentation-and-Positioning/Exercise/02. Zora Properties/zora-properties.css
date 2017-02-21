@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:700|Open+Sans:400,700');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+html, auto {
+  overflow: auto;
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+aside {
+  font-family: "Comfortaa", sans-serif;
+  float: left;
+  width: 15%;
+  min-width: 150px;
+  display: table-cell;
+  color: #b1bfc6;
+}
+
+main {
+  margin-left: 15%;
+}
+
+.brand {
+  color: black;
+  font-size: 40px;
+  font-weight: 400;
+  text-transform: lowercase;
+  text-align: center;
+}
+
+.salesman {
+  border-radius: 50%;
+  max-width: 90px;
+  max-height: 90px;
+}
+
+.profile {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.profile-name {
+  margin-top: 15px;
+}
+
+.nav > ul {
+  padding-left: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+i {
+  margin-right: 5px;
+}
+
+.nav li {
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav li:hover {
+  color: black;
+  border-left: 3px solid #ff7739;
+}
+
+main {
+  background-color: #f3f5f7;
+}
+
+main > h1 {
+  display: inline-block;
+  padding: 30px;
+  font-weight: 400;
+}
+
+.properties-count {
+  color: #b1bfc6;
+}
+
+.btn-add-property {
+  padding: 15px;
+  text-transform: uppercase;
+  background: none;
+  border: 3px solid #ff7739;
+  border-radius: 30%;
+  color: #ff7739;
+  float: right;
+  margin: 45px;
+}
