@@ -1,0 +1,20 @@
+﻿<div class="card col-4 thumbnail">
+
+    <img class="card-image-top img-fluid img-thumbnail"
+         onerror="this.src = 'https://img.youtube.com/vi/{0}/0.jpg';"
+         src="{1}">
+
+    <div class="card-block">
+        <h4 class="card-title">{2}</h4>
+        <p class="card-text"><strong>Price</strong> - {3}&euro;</p>
+        <p class="card-text"><strong>Size</strong> - {4} GB</p>
+        <p class="card-text">
+            {5}
+        </p>
+    </div>
+
+    <div class="card-footer">
+        <a class="card-button btn btn-outline-primary" href="/games/details?id={6}">Info</a>
+        <a class="card-button btn btn-primary" href="/cart/add?id={6}">Buy</a>
+    </div>
+</div>
